@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 type Period = "7d" | "30d" | "90d";
+type TipoObservacao = "observacao" | "promocao" | "data_sazonal";
 
 /* Dados de exemplo – substitua por chamada à API do GA4 quando configurar.
    Veja README ou .env.example para NEXT_PUBLIC_GA4_PROPERTY_ID e credenciais. */
@@ -32,7 +33,72 @@ export default function AnaliseCampanhaPage() {
   const [period, setPeriod] = useState<Period>("30d");
   const metrics = MOCK_METRICS[period];
 
+  /* Chat / Observações – envio para o gestor */
+  const [tipoObs, setTipoObs] = useState<TipoObservacao>("observacao");
+  const [mensagemObs, setMensagemObs] = useState("");
+  const [dataSazonal, setDataSazonal] = useState("");
+  const [enviandoObs, setEnviandoObs] = useState(false);
+  const [obsEnviada, setObsEnviada] = useState(false);
+
+  /* Painel IA – leads + faturamento + análise */
+  const [leadsHoje, setLeadsHoje] = useState("");
+  const [faturamentoHoje, setFaturamentoHoje] = useState("");
+  const [observacoesIA, setObservacoesIA] = useState("");
+  const [analisando, setAnalisando] = useState(false);
+  const [resumoIA, setResumoIA] = useState<string | null>(null);
+
   const periodLabel = period === "7d" ? "Últimos 7 dias" : period === "30d" ? "Últimos 30 dias" : "Últimos 90 dias";
+
+  const enviarObservacao = async () => {
+    if (!mensagemObs.trim()) return;
+    setEnviandoObs(true);
+    setObsEnviada(false);
+    try {
+      const res = await fetch("/api/campanha-observacoes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tipo: tipoObs,
+          mensagem: mensagemObs.trim(),
+          ...(tipoObs === "data_sazonal" && dataSazonal ? { data: dataSazonal } : {}),
+        }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setMensagemObs("");
+        setDataSazonal("");
+        setObsEnviada(true);
+      } else throw new Error(data.error);
+    } catch {
+      setObsEnviada(false);
+    } finally {
+      setEnviandoObs(false);
+    }
+  };
+
+  const analisarPerformance = async () => {
+    setAnalisando(true);
+    setResumoIA(null);
+    try {
+      const res = await fetch("/api/analise-ia", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          leadsHoje: Number(leadsHoje.replace(/\D/g, "")) || 0,
+          faturamentoHoje: Number(faturamentoHoje.replace(/\D/g, "").replace(",", ".")) || 0,
+          periodo: periodLabel,
+          observacoes: observacoesIA.trim() || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (data.resumo) setResumoIA(data.resumo);
+      else throw new Error(data.error);
+    } catch {
+      setResumoIA("Não foi possível gerar a análise. Tente novamente.");
+    } finally {
+      setAnalisando(false);
+    }
+  };
 
   return (
     <div className="space-y-8">
@@ -158,6 +224,160 @@ export default function AnaliseCampanhaPage() {
             );
           })}
         </div>
+      </section>
+
+      {/* ── Chat: Observações, promoções e datas sazonais (vão para o gestor) ── */}
+      <section className="rounded-2xl border border-[#E8EEF5] bg-white p-6 shadow-sm">
+        <h2 className="mb-2 text-base font-bold uppercase tracking-widest text-[#7A8694]">
+          Enviar para o gestor
+        </h2>
+        <p className="mb-5 text-sm text-[#4A4A4A]">
+          Adicione observações, promoções ou datas sazonais. A mensagem será enviada para você (gestor).
+        </p>
+
+        <div className="space-y-4">
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+              Tipo
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {(
+                [
+                  { value: "observacao" as const, label: "Observação" },
+                  { value: "promocao" as const, label: "Promoção" },
+                  { value: "data_sazonal" as const, label: "Data sazonal" },
+                ] as const
+              ).map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => setTipoObs(opt.value)}
+                  className="rounded-xl border px-4 py-2 text-sm font-semibold transition-all"
+                  style={{
+                    borderColor: tipoObs === opt.value ? "#1F3A5F" : "#D4DCE8",
+                    background: tipoObs === opt.value ? "#1F3A5F" : "#fff",
+                    color: tipoObs === opt.value ? "#fff" : "#4A4A4A",
+                  }}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {tipoObs === "data_sazonal" && (
+            <div>
+              <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+                Data (ex.: Black Friday, Natal, Dia das Mães)
+              </label>
+              <input
+                type="text"
+                value={dataSazonal}
+                onChange={(e) => setDataSazonal(e.target.value)}
+                placeholder="Ex: Black Friday – 29/11"
+                className="w-full max-w-sm rounded-xl border border-[#D4DCE8] px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#1F3A5F]/30"
+              />
+            </div>
+          )}
+
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+              Mensagem
+            </label>
+            <textarea
+              value={mensagemObs}
+              onChange={(e) => setMensagemObs(e.target.value)}
+              placeholder="Ex: Próxima semana teremos 20% em clareamento. Ou: Anotar que em dezembro a demanda caiu."
+              rows={4}
+              className="w-full resize-none rounded-xl border border-[#D4DCE8] px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#1F3A5F]/30"
+            />
+          </div>
+
+          {obsEnviada && (
+            <p className="text-sm font-medium text-[#25D366]">✓ Mensagem enviada. Você receberá no e-mail configurado.</p>
+          )}
+
+          <button
+            onClick={enviarObservacao}
+            disabled={enviandoObs || !mensagemObs.trim()}
+            className="rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:opacity-50"
+            style={{ background: "#1F3A5F", boxShadow: "0 4px 16px rgba(31,58,95,0.3)" }}
+          >
+            {enviandoObs ? "Enviando…" : "Enviar para mim"}
+          </button>
+        </div>
+      </section>
+
+      {/* ── Painel IA: resultados + leads + faturamento → performance em dinheiro ── */}
+      <section className="rounded-2xl border border-[#E8EEF5] bg-white p-6 shadow-sm">
+        <div className="mb-4 flex items-center gap-2">
+          <span className="text-xl">🤖</span>
+          <h2 className="text-base font-bold uppercase tracking-widest text-[#7A8694]">
+            Análise com IA
+          </h2>
+        </div>
+        <p className="mb-5 text-sm text-[#4A4A4A]">
+          Informe leads e faturamento do dia. A IA cruza com os resultados das campanhas e suas observações para avaliar a performance em resultado de dinheiro e rede de anúncios.
+        </p>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+              Leads hoje
+            </label>
+            <input
+              type="number"
+              min={0}
+              value={leadsHoje}
+              onChange={(e) => setLeadsHoje(e.target.value)}
+              placeholder="Ex: 12"
+              className="w-full rounded-xl border border-[#D4DCE8] px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#1F3A5F]/30"
+            />
+          </div>
+          <div>
+            <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+              Faturamento hoje (R$)
+            </label>
+            <input
+              type="text"
+              inputMode="decimal"
+              value={faturamentoHoje}
+              onChange={(e) => setFaturamentoHoje(e.target.value)}
+              placeholder="Ex: 3500,00"
+              className="w-full rounded-xl border border-[#D4DCE8] px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#1F3A5F]/30"
+            />
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <label className="mb-1.5 block text-xs font-bold uppercase tracking-widest text-[#4A4A4A]">
+            Observações / contexto (opcional)
+          </label>
+          <textarea
+            value={observacoesIA}
+            onChange={(e) => setObservacoesIA(e.target.value)}
+            placeholder="Ex: Muitos pedidos de orçamento para implante. Campanha do Google performou melhor."
+            rows={2}
+            className="w-full resize-none rounded-xl border border-[#D4DCE8] px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#1F3A5F]/30"
+          />
+        </div>
+
+        <button
+          onClick={analisarPerformance}
+          disabled={analisando}
+          className="mt-4 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:opacity-50"
+          style={{ background: "linear-gradient(135deg, #1F3A5F, #2B5080)", boxShadow: "0 4px 16px rgba(31,58,95,0.3)" }}
+        >
+          {analisando ? "Analisando…" : "Analisar performance"}
+        </button>
+
+        {resumoIA && (
+          <div
+            className="mt-6 rounded-xl border p-5 text-sm leading-relaxed"
+            style={{ borderColor: "#E8EEF5", background: "#F7F9FC" }}
+          >
+            <p className="whitespace-pre-wrap text-[#0E0E0E]">{resumoIA}</p>
+          </div>
+        )}
       </section>
 
       {/* CTA para GA completo */}
