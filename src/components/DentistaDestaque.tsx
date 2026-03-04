@@ -1,166 +1,189 @@
-import { DENTISTA, CRO, WHATSAPP_LINK } from "@/lib/constants";
+"use client";
+
+import { useState } from "react";
+import { WHATSAPP_LINK, DENTISTA, CRO } from "@/lib/constants";
+
+const PROFISSIONAIS = [
+  {
+    foto: "/dr-gustavo-2.jpg",
+    nome: "Dr. Gustavo Giolo",
+    especialidade: "Implantodontista",
+    cro: CRO,
+    position: "top center",
+  },
+  {
+    foto: "/dr-gustavo.jpg",
+    nome: "Dr. Gustavo Giolo",
+    especialidade: "Reabilitação Oral",
+    cro: CRO,
+    position: "top center",
+  },
+  {
+    foto: "/equipe.jpg",
+    nome: "Nossa Equipe",
+    especialidade: "OdontoNeo Infinity",
+    cro: null,
+    position: "center",
+  },
+];
 
 export default function DentistaDestaque() {
+  const [active, setActive] = useState(0);
+
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ background: "#1F3A5F" }}
+      id="dentista"
+      className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      style={{ background: "#F7F4EE" }}
     >
-      {/* ── Triângulos decorativos brancos — topo ── */}
-      <div className="pointer-events-none absolute left-0 right-0 top-0">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="block w-full"
-          style={{ height: "clamp(32px,5vw,80px)" }}
-        >
-          {/* triângulo esquerdo */}
-          <polygon points="0,0 420,0 0,80" fill="white" />
-          {/* triângulo direito */}
-          <polygon points="1440,0 1020,0 1440,80" fill="white" />
+      {/* Elemento decorativo — linhas douradas no fundo */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-10" aria-hidden>
+        <svg viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full">
+          <ellipse cx="400" cy="300" rx="280" ry="380" stroke="#D4A11E" strokeWidth="1" />
+          <ellipse cx="400" cy="300" rx="220" ry="300" stroke="#D4A11E" strokeWidth="0.5" />
         </svg>
       </div>
 
-      {/* ── Triângulos decorativos brancos — base ── */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="block w-full"
-          style={{ height: "clamp(32px,5vw,80px)" }}
-        >
-          <polygon points="0,80 420,80 0,0" fill="white" />
-          <polygon points="1440,80 1020,80 1440,0" fill="white" />
-        </svg>
-      </div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
 
-      {/* ── Conteúdo ── */}
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+        {/* ── Esquerda: texto ── */}
+        <div className="flex flex-col items-start">
 
-        {/* ── Foto blob — esquerda ── */}
-        <div className="flex justify-center">
-          <div className="relative">
-            {/* Sombra bege/dourada atrás do blob */}
-            <div
-              style={{
-                position: "absolute",
-                inset: "-20px",
-                borderRadius: "48% 52% 42% 58% / 44% 56% 44% 56%",
-                background: "#C8A96A",
-                zIndex: 0,
-              }}
-            />
-
-            {/* Blob foto */}
-            <div
-              className="relative overflow-hidden"
-              style={{
-                width: "clamp(240px, 28vw, 400px)",
-                height: "clamp(280px, 36vw, 500px)",
-                borderRadius: "48% 52% 42% 58% / 44% 56% 44% 56%",
-                background: "#D6E6F2",
-                border: "5px solid rgba(255,255,255,0.25)",
-                zIndex: 1,
-                boxShadow: "0 16px 48px rgba(0,0,0,0.25)",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/dr-gustavo-2.jpg"
-                alt="Dr. Gustavo Giolo"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
-              />
-            </div>
-
-          </div>
-        </div>
-
-        {/* ── Texto — direita ── */}
-        <div>
-          <p
-            className="mb-3 text-xs font-semibold"
-            style={{ color: "#C8A96A" }}
-          >
-            Proprietário da{" "}
-            <span className="font-bold text-white">OdontoNeo Infinity</span>
-          </p>
-
-          <h2
-            className="mb-6 text-white"
-            style={{
-              fontSize: "clamp(1.9rem, 3.5vw, 3.2rem)",
-              fontWeight: 800,
-              letterSpacing: "-0.025em",
-              lineHeight: 1.1,
-            }}
-          >
-            Dr.{" "}
-            <span style={{ color: "#C8A96A" }}>Gustavo Giolo</span>
-          </h2>
-
-          {/* Linha dourada */}
-          <div
-            className="mb-6 h-[3px] w-12 rounded-full"
-            style={{ background: "linear-gradient(90deg, #D4A11E, #F0C84E)" }}
-          />
-
-          <div className="space-y-4 text-sm leading-relaxed sm:text-base">
-            <p style={{ color: "rgba(255,255,255,0.85)" }}>
-              Especialista em transformar sorrisos com odontologia humanizada e de alta
-              performance em São José do Rio Preto – SP.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.75)" }}>
-              Com uma abordagem acolhedora e foco total no bem-estar do paciente, o
-              Dr. Gustavo utiliza tecnologia de ponta e os materiais mais avançados para
-              garantir resultados estéticos e funcionais de excelência — do implante
-              mais complexo ao sorriso que você sempre sonhou.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.75)" }}>
-              Reconhecido em São José do Rio Preto pela dedicação ao atendimento
-              personalizado, está entre os dentistas que mais realizam{" "}
-              <strong className="text-white">
-                implantes e reabilitações orais completas
-              </strong>{" "}
-              na região.
-            </p>
-          </div>
-
-          {/* CRO */}
-          <div
-            className="mb-7 mt-6 inline-flex items-center gap-2 rounded-xl px-4 py-2"
-            style={{
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.2)",
-            }}
-          >
-            <span className="text-base">🦷</span>
-            <span className="text-xs font-semibold text-white/70">
-              {DENTISTA} · <span className="text-white">{CRO}</span>
+          <div className="mb-6 flex items-center gap-3">
+            <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: "#D4A11E" }}>
+              Nossa equipe
             </span>
           </div>
 
-          <br />
+          <h2
+            className="font-serif mb-5 font-semibold italic leading-tight"
+            style={{
+              fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
+              color: "#D4A11E",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Profissionais<br />Especializados
+          </h2>
 
+          <p className="mb-3 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "44ch" }}>
+            Nossa equipe é especializada em cada área em que atua, com alto nível
+            de conhecimento, preparo e dedicação a cada paciente.
+          </p>
+          <p className="mb-10 text-sm leading-relaxed" style={{ color: "#7A8694", maxWidth: "44ch" }}>
+            Sob a liderança do {DENTISTA}, utilizamos as tecnologias mais avançadas
+            para garantir resultados estéticos e funcionais de excelência —
+            do implante mais complexo ao sorriso que você sempre sonhou.
+          </p>
+
+          {/* CRO badge */}
+          <div
+            className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2"
+            style={{ background: "rgba(31,58,95,0.07)", border: "1px solid rgba(31,58,95,0.12)" }}
+          >
+            <span className="text-sm">🦷</span>
+            <span className="text-xs font-semibold" style={{ color: "#1F3A5F" }}>
+              {DENTISTA} · {CRO}
+            </span>
+          </div>
+
+          {/* Botão outline estilo Vitta */}
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-all hover:opacity-90"
-            style={{
-              background: "#C8A96A",
-              color: "#1F3A5F",
-              boxShadow: "0 4px 16px rgba(200,169,106,0.4)",
-            }}
+            className="group inline-flex items-center gap-3 border px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:bg-[#1F3A5F] hover:border-[#1F3A5F] hover:text-white"
+            style={{ color: "#1F3A5F", borderColor: "#1F3A5F", borderRadius: "2px" }}
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
             Agendar consulta gratuita
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </a>
         </div>
 
+        {/* ── Direita: cards de profissionais ── */}
+        <div className="flex flex-col gap-6">
+
+          {/* Cards em lista horizontal / slider */}
+          <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollSnapType: "x mandatory" }}>
+            {PROFISSIONAIS.map((p, i) => (
+              <button
+                key={p.nome + i}
+                onClick={() => setActive(i)}
+                className="group relative shrink-0 overflow-hidden rounded-xl transition-all duration-300"
+                style={{
+                  scrollSnapAlign: "start",
+                  width: i === active ? "clamp(180px, 26vw, 260px)" : "clamp(120px, 16vw, 170px)",
+                  height: "clamp(260px, 38vw, 380px)",
+                  transition: "width 0.5s cubic-bezier(0.25,0.46,0.45,0.94)",
+                  border: i === active ? "2px solid #D4A11E" : "2px solid transparent",
+                  boxShadow: i === active ? "0 12px 36px rgba(0,0,0,0.18)" : "0 4px 16px rgba(0,0,0,0.1)",
+                }}
+              >
+                {/* Foto */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.foto}
+                  alt={p.nome}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: p.position,
+                    transition: "transform 0.5s ease",
+                  }}
+                  className="group-hover:scale-105"
+                />
+
+                {/* Overlay degradê no fundo */}
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(5,10,22,0.82) 0%, rgba(5,10,22,0.1) 55%, transparent 100%)",
+                  }}
+                />
+
+                {/* Nome + especialidade */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-left">
+                  <p className="font-serif text-sm font-semibold leading-tight text-white sm:text-base">
+                    {p.nome}
+                  </p>
+                  <p className="mt-0.5 text-[11px] font-medium" style={{ color: "#D4A11E" }}>
+                    {p.especialidade}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Dots indicadores */}
+          <div className="flex items-center gap-2 pl-1">
+            {PROFISSIONAIS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Profissional ${i + 1}`}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: i === active ? 24 : 8,
+                  height: 8,
+                  background: i === active ? "#D4A11E" : "rgba(31,58,95,0.2)",
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

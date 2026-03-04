@@ -7,14 +7,7 @@ import AgendamentoModal from "@/components/AgendamentoModal";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   /* Trava scroll do body quando menu aberto */
   useEffect(() => {
@@ -22,20 +15,15 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const headerBg =
-    scrolled || menuOpen
-      ? "rgba(22,45,74,0.97)"
-      : "transparent";
-
   return (
     <>
-      {/* ══ HEADER FIXO ══ */}
+      {/* ══ HEADER FIXO — sempre escuro, sem animação de scroll ══ */}
       <header
-        className="fixed left-0 right-0 top-0 z-50 transition-all duration-500"
+        className="fixed left-0 right-0 top-0 z-50"
         style={{
-          background: headerBg,
-          backdropFilter: scrolled || menuOpen ? "blur(14px)" : "none",
-          borderBottom: scrolled || menuOpen ? "1px solid rgba(255,255,255,0.08)" : "none",
+          background: "rgba(22,45,74,0.98)",
+          backdropFilter: "blur(14px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-12">
