@@ -31,24 +31,37 @@ export default function ClinicaDestaque() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
 
-        {/* ── Foto — esquerda, retrato sem recorte ── */}
+        {/* ── Vídeo — esquerda ── */}
         <div className="relative">
           <div
             className="relative overflow-hidden"
-            style={{ borderRadius: "4px", aspectRatio: "4/5" }}
+            style={{ borderRadius: "8px", aspectRatio: "9/16", boxShadow: "0 16px 48px rgba(0,0,0,0.14)" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/recepcao-ampla.jpg"
-              alt="Clínica OdontoNeo Infinity — São José do Rio Preto"
+            <video
+              src="/porque-escolher-odontoneo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center",
                 display: "block",
+                background: "#0C1829",
               }}
             />
+
+            {/* Eyebrow sobre o vídeo */}
+            <div
+              className="pointer-events-none absolute left-0 right-0 top-0 flex items-center justify-center py-4"
+              style={{ background: "linear-gradient(to bottom, rgba(5,10,22,0.7) 0%, transparent 100%)" }}
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "#D4A11E" }}>
+                Por que escolher a OdontoNeo
+              </span>
+            </div>
           </div>
 
           {/* Badge flutuante — detalhe premium */}
