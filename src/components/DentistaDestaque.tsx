@@ -1,4 +1,5 @@
-import { WHATSAPP_LINK, DENTISTA, CRO } from "@/lib/constants";
+import Link from "next/link";
+import { DENTISTA, CRO } from "@/lib/constants";
 
 const PROFISSIONAIS = [
   {
@@ -60,14 +61,12 @@ export default function DentistaDestaque() {
           </p>
 
           {/* Botão outline estilo Vitta */}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/nossa-equipe"
             className="group inline-flex items-center gap-3 border px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:bg-[#1F3A5F] hover:border-[#1F3A5F] hover:text-white"
             style={{ color: "#1F3A5F", borderColor: "#1F3A5F", borderRadius: "2px" }}
           >
-            Agendar consulta gratuita
+            Conheça nossos profissionais
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -77,7 +76,7 @@ export default function DentistaDestaque() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* ── Direita: foto do Dr. Gustavo ── */}

@@ -35,12 +35,6 @@ const PILARES = [
   },
 ];
 
-const NUMEROS = [
-  { valor: "10+", label: "Anos de experiência" },
-  { valor: "3.000+", label: "Pacientes atendidos" },
-  { valor: "98%", label: "Satisfação dos pacientes" },
-  { valor: "0", label: "Dor nos procedimentos" },
-];
 
 export default function AClinicaPage() {
   return (
@@ -105,29 +99,8 @@ export default function AClinicaPage() {
           <div className="absolute -right-3 -top-3 h-full w-full rounded-2xl" style={{ background: "#EAF0F6", zIndex: 0 }} />
           <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: "4/5", zIndex: 1 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/recepcao.jpg" alt="Recepção da OdontoNeo" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+            <img src="/foto-principal.jpg" alt="OdontoNeo Infinity" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
           </div>
-          {/* Badge */}
-          <div className="absolute -bottom-4 -left-4 flex flex-col items-center justify-center rounded-full bg-white" style={{ width: 88, height: 88, border: "2px solid #D4A11E", boxShadow: "0 8px 28px rgba(212,161,30,0.2)", zIndex: 2 }}>
-            <span className="font-serif text-xl font-semibold leading-none" style={{ color: "#D4A11E" }}>10+</span>
-            <span className="mt-0.5 text-center text-[8px] font-bold uppercase leading-tight tracking-wide text-gray-400">anos<br />de cuidado</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Números da clínica ── */}
-      <section className="py-16" style={{ background: "#1F3A5F" }}>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-px px-6 sm:px-10 lg:grid-cols-4">
-          {NUMEROS.map((n, i) => (
-            <div key={i} className="flex flex-col items-center py-10 text-center">
-              <span className="font-serif mb-2 font-semibold leading-none text-white" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: i === 3 ? "#D4A11E" : "white" }}>
-                {n.valor}
-              </span>
-              <span className="text-xs font-medium uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.45)" }}>
-                {n.label}
-              </span>
-            </div>
-          ))}
         </div>
       </section>
 

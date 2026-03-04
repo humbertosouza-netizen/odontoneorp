@@ -26,12 +26,13 @@ export default function Footer() {
         <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.3em]" style={{ color: "#D4A11E" }}>
           São José do Rio Preto – SP
         </p>
-        <h2
-          className="font-serif mb-4 font-semibold text-white"
-          style={{ fontSize: "clamp(2rem, 4vw, 3.4rem)", letterSpacing: "-0.01em" }}
-        >
-          OdontoNeo Infinity
-        </h2>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-odontoneo.png"
+          alt="OdontoNeo Infinity"
+          className="mx-auto mb-4"
+          style={{ height: "clamp(40px, 5vw, 56px)", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }}
+        />
         <p className="mx-auto mb-8 max-w-sm text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
           Odontologia de alto padrão com tecnologia, cuidado e a dedicação que
           o seu sorriso merece.

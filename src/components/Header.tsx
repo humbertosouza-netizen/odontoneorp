@@ -56,18 +56,15 @@ export default function Header() {
           {/* Centro: Logo */}
           <Link
             href="/"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             onClick={() => setMenuOpen(false)}
           >
-            <span
-              className="font-serif text-xl font-semibold tracking-[0.12em] text-white sm:text-2xl"
-              style={{ letterSpacing: "0.1em" }}
-            >
-              OdontoNeo
-            </span>
-            <span className="text-[9px] font-bold uppercase tracking-[0.35em]" style={{ color: "#D4A11E" }}>
-              Infinity
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-odontoneo.png"
+              alt="OdontoNeo Infinity"
+              style={{ height: "clamp(32px, 4vw, 44px)", width: "auto", objectFit: "contain" }}
+            />
           </Link>
 
           {/* Direita: Contato */}
