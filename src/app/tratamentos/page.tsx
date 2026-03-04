@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { WHATSAPP_LINK } from "@/lib/constants";
 import type { Metadata } from "next";
+import TratamentoImagem from "@/components/TratamentoImagem";
 
 export const metadata: Metadata = {
   title: "Tratamentos | OdontoNeo Infinity – São José do Rio Preto",
@@ -199,31 +200,9 @@ export default function TratamentosPage() {
                     tIdx % 2 === 1 ? "lg:[direction:rtl]" : ""
                   }`}
                 >
-                  {/* Foto */}
-                  <div
-                    className="relative overflow-hidden rounded-2xl lg:[direction:ltr]"
-                    style={{ aspectRatio: "3/4" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={t.foto}
-                      alt={t.titulo}
-                      className="transition-transform duration-700 hover:scale-105"
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center top",
-                        display: "block",
-                      }}
-                    />
-                    {/* Overlay sutil para integrar com o layout */}
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(5,10,22,0.08) 100%)" }}
-                    />
+                  {/* Foto — clique para fullscreen */}
+                  <div className="lg:[direction:ltr]">
+                    <TratamentoImagem src={t.foto} alt={t.titulo} />
                   </div>
 
                   {/* Conteúdo */}
