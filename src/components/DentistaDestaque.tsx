@@ -1,34 +1,16 @@
-"use client";
-
-import { useState } from "react";
 import { WHATSAPP_LINK, DENTISTA, CRO } from "@/lib/constants";
 
 const PROFISSIONAIS = [
   {
-    foto: "/dr-gustavo-2.jpg",
+    foto: "/foto-dr-gustavo.jpeg",
     nome: "Dr. Gustavo Giolo",
-    especialidade: "Implantodontista",
+    especialidade: "Implantodontista · Reabilitação Oral",
     cro: CRO,
     position: "top center",
-  },
-  {
-    foto: "/dr-gustavo.jpg",
-    nome: "Dr. Gustavo Giolo",
-    especialidade: "Reabilitação Oral",
-    cro: CRO,
-    position: "top center",
-  },
-  {
-    foto: "/equipe.jpg",
-    nome: "Nossa Equipe",
-    especialidade: "OdontoNeo Infinity",
-    cro: null,
-    position: "center",
   },
 ];
 
 export default function DentistaDestaque() {
-  const [active, setActive] = useState(0);
 
   return (
     <section
@@ -77,17 +59,6 @@ export default function DentistaDestaque() {
             do implante mais complexo ao sorriso que você sempre sonhou.
           </p>
 
-          {/* CRO badge */}
-          <div
-            className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2"
-            style={{ background: "rgba(31,58,95,0.07)", border: "1px solid rgba(31,58,95,0.12)" }}
-          >
-            <span className="text-sm">🦷</span>
-            <span className="text-xs font-semibold" style={{ color: "#1F3A5F" }}>
-              {DENTISTA} · {CRO}
-            </span>
-          </div>
-
           {/* Botão outline estilo Vitta */}
           <a
             href={WHATSAPP_LINK}
@@ -109,79 +80,52 @@ export default function DentistaDestaque() {
           </a>
         </div>
 
-        {/* ── Direita: cards de profissionais ── */}
-        <div className="flex flex-col gap-6">
+        {/* ── Direita: foto do Dr. Gustavo ── */}
+        <div className="relative">
+          <div
+            className="group relative overflow-hidden rounded-xl"
+            style={{
+              height: "clamp(360px, 52vw, 520px)",
+              border: "2px solid #D4A11E",
+              boxShadow: "0 12px 48px rgba(0,0,0,0.18)",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={PROFISSIONAIS[0].foto}
+              alt={PROFISSIONAIS[0].nome}
+              className="group-hover:scale-105 transition-transform duration-700"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: PROFISSIONAIS[0].position,
+              }}
+            />
 
-          {/* Cards em lista horizontal / slider */}
-          <div className="flex gap-4 overflow-x-auto pb-2" style={{ scrollSnapType: "x mandatory" }}>
-            {PROFISSIONAIS.map((p, i) => (
-              <button
-                key={p.nome + i}
-                onClick={() => setActive(i)}
-                className="group relative shrink-0 overflow-hidden rounded-xl transition-all duration-300"
-                style={{
-                  scrollSnapAlign: "start",
-                  width: i === active ? "clamp(180px, 26vw, 260px)" : "clamp(120px, 16vw, 170px)",
-                  height: "clamp(260px, 38vw, 380px)",
-                  transition: "width 0.5s cubic-bezier(0.25,0.46,0.45,0.94)",
-                  border: i === active ? "2px solid #D4A11E" : "2px solid transparent",
-                  boxShadow: i === active ? "0 12px 36px rgba(0,0,0,0.18)" : "0 4px 16px rgba(0,0,0,0.1)",
-                }}
-              >
-                {/* Foto */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.foto}
-                  alt={p.nome}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: p.position,
-                    transition: "transform 0.5s ease",
-                  }}
-                  className="group-hover:scale-105"
-                />
+            {/* Overlay degradê no fundo */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(5,10,22,0.85) 0%, rgba(5,10,22,0.1) 55%, transparent 100%)",
+              }}
+            />
 
-                {/* Overlay degradê no fundo */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(to top, rgba(5,10,22,0.82) 0%, rgba(5,10,22,0.1) 55%, transparent 100%)",
-                  }}
-                />
-
-                {/* Nome + especialidade */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-left">
-                  <p className="font-serif text-sm font-semibold leading-tight text-white sm:text-base">
-                    {p.nome}
-                  </p>
-                  <p className="mt-0.5 text-[11px] font-medium" style={{ color: "#D4A11E" }}>
-                    {p.especialidade}
-                  </p>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Dots indicadores */}
-          <div className="flex items-center gap-2 pl-1">
-            {PROFISSIONAIS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                aria-label={`Profissional ${i + 1}`}
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: i === active ? 24 : 8,
-                  height: 8,
-                  background: i === active ? "#D4A11E" : "rgba(31,58,95,0.2)",
-                }}
-              />
-            ))}
+            {/* Nome + especialidade + CRO */}
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <p className="font-serif text-xl font-semibold leading-tight text-white">
+                {PROFISSIONAIS[0].nome}
+              </p>
+              <p className="mt-1 text-[12px] font-medium" style={{ color: "#D4A11E" }}>
+                {PROFISSIONAIS[0].especialidade}
+              </p>
+              <p className="mt-1 text-[11px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+                {PROFISSIONAIS[0].cro}
+              </p>
+            </div>
           </div>
         </div>
       </div>

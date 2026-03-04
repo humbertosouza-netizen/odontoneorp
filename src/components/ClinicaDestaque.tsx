@@ -1,4 +1,4 @@
-import { WHATSAPP_LINK } from "@/lib/constants";
+import Link from "next/link";
 
 export default function ClinicaDestaque() {
   return (
@@ -111,10 +111,8 @@ export default function ClinicaDestaque() {
           </p>
 
           {/* CTA outline — igual ao Vitta */}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/a-clinica"
             className="group inline-flex items-center gap-3 border px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:bg-[#1F3A5F] hover:border-[#1F3A5F] hover:text-white"
             style={{
               color: "#1F3A5F",
@@ -132,7 +130,7 @@ export default function ClinicaDestaque() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

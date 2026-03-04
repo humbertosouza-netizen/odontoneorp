@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { WHATSAPP_LINK } from "@/lib/constants";
 
 type Slide = {
   id: number;
@@ -23,7 +22,7 @@ const SLIDES: Slide[] = [
     headline: "Vamos iniciar seu protocolo?",
     subtitle: "Do diagnóstico ao resultado final, a OdontoNeo oferece um protocolo completo, moderno e humanizado para transformar o seu sorriso.",
     cta: "Agendar Avaliação",
-    ctaHref: WHATSAPP_LINK,
+    ctaHref: "#clinica",
     photo: "/img-protocolo.jpeg",
     photoAlt: "Protocolo OdontoNeo",
     overlay: "rgba(8,20,44,0.68)",

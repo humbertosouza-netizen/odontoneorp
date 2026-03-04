@@ -7,17 +7,17 @@ const PANELS = [
     sub: "Soluções completas para o seu sorriso",
     cta: "Ver Tratamentos",
     href: "/tratamentos",
-    photo: "/sala-atendimento.jpg",
-    alt: "Sala de atendimento OdontoNeo Infinity",
+    photo: "/tratamentos-2.jpeg",
+    alt: "Tratamentos OdontoNeo Infinity",
   },
   {
     id: "tecnologias",
     label: "Tecnologias",
     sub: "Equipamentos de última geração",
     cta: "Ver Tecnologias",
-    href: "#dentista",
-    photo: "/recepcao-ampla.jpg",
-    alt: "Estrutura moderna da OdontoNeo Infinity",
+    href: "/tecnologias",
+    photo: "/tecnologia-2.jpg",
+    alt: "Tecnologia OdontoNeo Infinity",
   },
 ];
 
