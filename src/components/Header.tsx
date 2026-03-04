@@ -105,6 +105,16 @@ export default function Header() {
           transition: "opacity 0.45s ease",
         }}
       >
+        {/* Imagem de fundo com opacidade baixa */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/equipe socios.jpg"
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+          style={{ opacity: 0.07 }}
+        />
+
         {/* Linha dourada decorativa — topo */}
         <div
           className="absolute left-0 right-0 top-[72px] h-px"
