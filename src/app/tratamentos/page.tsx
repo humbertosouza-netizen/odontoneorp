@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Tratamentos | OdontoNeo Infinity – São José do Rio Preto",
   description:
-    "Implantes dentários, prótese protocolo, carga imediata, lentes de contato dental, clareamento, limpeza e prevenção. Clínica odontológica premium em São José do Rio Preto – SP.",
+    "Implantes dentários, prótese protocolo, lentes de contato dental, alinhador transparente Invisalign. Clínica odontológica premium em São José do Rio Preto – SP.",
 };
 
 const CATEGORIAS = [
@@ -20,7 +20,7 @@ const CATEGORIAS = [
       {
         titulo: "Implante Unitário",
         subtitulo: "Substitua um dente com raiz artificial",
-        foto: "/implante-dentario.png",
+        foto: "/resultado-implante.jpeg",
         descricao:
           "O implante unitário é a solução mais próxima de um dente natural. Um parafuso de titânio é inserido no osso e serve de raiz para uma coroa de porcelana com aparência e função idênticas ao dente original.",
         destaques: [
@@ -33,7 +33,7 @@ const CATEGORIAS = [
       {
         titulo: "Prótese Protocolo",
         subtitulo: "Dentes fixos sobre implantes",
-        foto: "/protese-protocolo.png",
+        foto: "/protese-protocolo-foto.jpeg",
         descricao:
           "Ideal para quem perdeu todos ou quase todos os dentes, a prótese protocolo é uma prótese fixa e permanente ancorada em implantes. Volte a sorrir, falar e mastigar com total segurança.",
         destaques: [
@@ -43,19 +43,6 @@ const CATEGORIAS = [
           "Recuperação rápida com qualidade de vida imediata",
         ],
       },
-      {
-        titulo: "Carga Imediata",
-        subtitulo: "Implante e dente provisório no mesmo dia",
-        foto: "/implante-dentario.png",
-        descricao:
-          "Com a técnica de carga imediata, você recebe os implantes e já sai da clínica com dentes provisórios no mesmo dia. Sem período sem sorrir. Protocolo moderno para resultados rápidos e seguros.",
-        destaques: [
-          "Dentes provisórios no mesmo dia",
-          "Menos sessões e menos tempo de tratamento",
-          "Preservação óssea imediata",
-          "Resultado estético desde o primeiro dia",
-        ],
-      },
     ],
   },
   {
@@ -63,26 +50,13 @@ const CATEGORIAS = [
     numero: "02",
     label: "Estética Dental",
     descricao:
-      "Transforme o seu sorriso com procedimentos estéticos de alta precisão. Brancura, forma e harmonia para que você se sinta incrível.",
+      "Transforme o seu sorriso com procedimentos estéticos de alta precisão. Forma, harmonia e beleza para que você se sinta incrível.",
     cor: "#D4A11E",
     tratamentos: [
       {
-        titulo: "Clareamento Dental",
-        subtitulo: "Até 8 tons mais claro em uma sessão",
-        foto: "/clareamento-dental.jpg",
-        descricao:
-          "O clareamento dental profissional utiliza géis à base de peróxido de hidrogênio de alta concentração, ativados por luz LED, para eliminar manchas e clarear os dentes em até 8 tons com segurança total.",
-        destaques: [
-          "Resultado visível na primeira sessão",
-          "Géis certificados e seguros",
-          "Opção em consultório ou kit domiciliar",
-          "Supervisionado pelo dentista",
-        ],
-      },
-      {
         titulo: "Lentes de Contato Dental",
         subtitulo: "Transformação completa do sorriso",
-        foto: "/lentes-contato.jpg",
+        foto: "/lentes-3.jpeg",
         descricao:
           "Finas lâminas de porcelana coladas na face dos dentes que transformam cor, forma, tamanho e proporção. O resultado é um sorriso harmonioso e natural com mínimo desgaste do dente original.",
         destaques: [
@@ -92,27 +66,17 @@ const CATEGORIAS = [
           "Resultado duradouro e natural",
         ],
       },
-    ],
-  },
-  {
-    id: "clinica-geral",
-    numero: "03",
-    label: "Clínica Geral",
-    descricao:
-      "A base de um sorriso saudável está na prevenção. Cuidamos da saúde bucal completa para que você nunca precise de tratamentos complexos.",
-    cor: "#25D366",
-    tratamentos: [
       {
-        titulo: "Limpeza e Prevenção",
-        subtitulo: "Saúde bucal que dura a vida toda",
-        foto: "/tratamento-gengiva.jpg",
+        titulo: "Alinhador Transparente",
+        subtitulo: "O aparelho invisível tipo Invisalign®",
+        foto: "/tratamentos.jpeg",
         descricao:
-          "A limpeza profissional (profilaxia) remove o tártaro e a placa bacteriana que a escovação não alcança. Complementada com orientação de higiene, fluoretação e avaliação completa da saúde bucal.",
+          "Os alinhadores transparentes movimentam os dentes de forma gradual, discreta e confortável, sem os arames e brackets do aparelho convencional. Ideais para corrigir apinhamentos, espaçamentos e mordidas desalinhadas.",
         destaques: [
-          "Remoção de tártaro e manchas",
-          "Prevenção de cárie e doença periodontal",
-          "Orientação personalizada de higiene",
-          "Avaliação bucal completa inclusa",
+          "Praticamente invisível no dia a dia",
+          "Removível para comer e escovar os dentes",
+          "Sem restrições alimentares",
+          "Planejamento digital com previsão do resultado final",
         ],
       },
     ],
@@ -130,8 +94,8 @@ export default function TratamentosPage() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/sala-atendimento.jpg"
-          alt="Sala de atendimento OdontoNeo"
+          src="/protase-feita-4.jpeg"
+          alt="Resultado real OdontoNeo"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.92) 0%, rgba(5,10,22,0.4) 60%, rgba(5,10,22,0.1) 100%)" }} />
@@ -197,12 +161,6 @@ export default function TratamentosPage() {
                       {cat.numero}
                     </span>
                     <div>
-                      <span
-                        className="block text-[10px] font-bold uppercase tracking-[0.25em]"
-                        style={{ color: cat.cor }}
-                      >
-                        Especialidade
-                      </span>
                       <h2
                         className="font-serif font-semibold"
                         style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)", color: "#0E0E0E", letterSpacing: "-0.01em" }}
