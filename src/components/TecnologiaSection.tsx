@@ -127,9 +127,9 @@ export default function TecnologiaSection() {
           </Link>
         </div>
 
-        {/* ── Direita: foto ── */}
+        {/* ── Direita: vídeo ── */}
         <div className="relative">
-          {/* Elemento decorativo atrás da foto */}
+          {/* Elemento decorativo atrás do vídeo */}
           <div
             className="absolute -right-4 -top-4 h-full w-full rounded-2xl"
             style={{ background: "#EAF0F6", zIndex: 0 }}
@@ -137,17 +137,19 @@ export default function TecnologiaSection() {
 
           <div
             className="relative overflow-hidden rounded-2xl"
-            style={{ aspectRatio: "4/5", zIndex: 1 }}
+            style={{ aspectRatio: "9/16", zIndex: 1, background: "#0C1829" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/sala-atendimento.jpg"
-              alt="Sala de atendimento moderna OdontoNeo Infinity"
+            <video
+              src="/resultado-enfase-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center",
                 display: "block",
               }}
             />
@@ -155,7 +157,7 @@ export default function TecnologiaSection() {
             {/* Badge flutuante — "0 Dor" */}
             <div
               className="absolute bottom-5 left-5 flex flex-col items-start rounded-xl bg-white px-5 py-4"
-              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.14)" }}
+              style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.14)", zIndex: 2 }}
             >
               <span
                 className="font-serif text-3xl font-semibold leading-none"
