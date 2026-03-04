@@ -11,6 +11,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Offset para header fixo */
+section[id] { scroll-margin-top: 80px; }
+
 @layer components {
 
   /* ── Labels de seção ───────────────────────── */
@@ -23,34 +26,38 @@ body {
     color: rgba(255,255,255,0.65);
   }
 
-  /* ── Títulos ───────────────────────────────── */
+  /* ── Títulos — agora com Playfair Display (serif) ─ */
   .title-hero {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
     line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.025em;
+    font-weight: 600;
+    letter-spacing: -0.015em;
     color: #0E0E0E;
   }
   .title-hero em {
-    font-style: normal;
+    font-style: italic;
     color: #1F3A5F;
   }
   .title-section {
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-    line-height: 1.2;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    line-height: 1.18;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: #0E0E0E;
   }
   .title-section-white {
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-    line-height: 1.2;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    line-height: 1.18;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: #FFFFFF;
   }
   .title-card {
-    @apply text-[15px] font-bold leading-snug sm:text-base;
+    font-family: var(--font-playfair), Georgia, serif;
+    @apply text-base font-semibold leading-snug sm:text-lg;
     color: #0E0E0E;
   }
 

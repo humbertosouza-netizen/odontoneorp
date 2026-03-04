@@ -6,68 +6,52 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 type Slide = {
   id: number;
   eyebrow: string;
-  title: string;
-  titleBold: string;
+  headline: string;
+  subtitle: string;
   cta: string;
-  href: string;
-  /* cores do lado direito */
-  bgRight: string;
-  circleColor: string;
-  /* foto: coloque o path da imagem em /public e use aqui */
+  ctaHref: string;
   photo: string | null;
   photoAlt: string;
-  /* overlay azul no lado esquerdo */
-  overlayColor: string;
-  /* ícone decorativo (enquanto não tem foto real) */
-  placeholderIcon: string;
+  overlay: string;
 };
 
 const SLIDES: Slide[] = [
   {
     id: 1,
     eyebrow: "Invisalign® e ortodontia de excelência",
-    title: "Ortodontia",
-    titleBold: "Invisível",
+    headline: "Ortodontia Invisível",
+    subtitle: "Alinhe seus dentes com conforto e discrição. Resultado estético e funcional sem aparelho convencional.",
     cta: "Fale Conosco Aqui",
-    href: WHATSAPP_LINK,
-    bgRight: "#C9A96E",
-    circleColor: "rgba(255,255,255,0.18)",
+    ctaHref: WHATSAPP_LINK,
     photo: "/banner-alinhador.png",
-    photoAlt: "Alinhador Transparente OdontoNeo",
-    overlayColor: "rgba(31,58,95,0.45)",
-    placeholderIcon: "🦷",
+    photoAlt: "Alinhador Transparente",
+    overlay: "rgba(15,35,60,0.72)",
   },
   {
     id: 2,
     eyebrow: "Solução definitiva para dentes perdidos",
-    title: "Implante",
-    titleBold: "Dentário",
+    headline: "Implante Dentário",
+    subtitle: "Na OdontoNeo Infinity oferecemos a solução permanente e de alto padrão para o seu caso.",
     cta: "Agendar Avaliação",
-    href: WHATSAPP_LINK,
-    bgRight: "#1F3A5F",
-    circleColor: "rgba(212,161,30,0.25)",
-    photo: null, // ex: "/banners/implante.jpg"
-    photoAlt: "Implante Dentário",
-    overlayColor: "rgba(15,35,60,0.65)",
-    placeholderIcon: "😁",
+    ctaHref: WHATSAPP_LINK,
+    photo: "/foto-clinica-1.jpg",
+    photoAlt: "Clínica OdontoNeo",
+    overlay: "rgba(15,35,60,0.7)",
   },
   {
     id: 3,
     eyebrow: "Transforme seu sorriso em dias",
-    title: "Lentes de",
-    titleBold: "Contato Dental",
+    headline: "Lentes de Contato Dental",
+    subtitle: "Finas capas de porcelana que transformam cor, forma e tamanho dos dentes com resultado natural.",
     cta: "Saiba Mais",
-    href: WHATSAPP_LINK,
-    bgRight: "#2B5080",
-    circleColor: "rgba(212,161,30,0.2)",
-    photo: null, // ex: "/banners/lentes.jpg"
-    photoAlt: "Lentes de Contato Dental",
-    overlayColor: "rgba(26,50,80,0.65)",
-    placeholderIcon: "✨",
+    ctaHref: WHATSAPP_LINK,
+    photo: "/recepcao.jpg",
+    photoAlt: "OdontoNeo Infinity",
+    overlay: "rgba(22,45,74,0.68)",
   },
 ];
 
-const AUTO_PLAY_MS = 5000;
+const AUTO_PLAY_MS = 6000;
 
 export default function BannerSection() {
   const [current, setCurrent] = useState(0);
@@ -83,120 +67,102 @@ export default function BannerSection() {
     return () => clearInterval(id);
   }, [paused, next]);
 
-  const slide = SLIDES[current];
-
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ height: "clamp(220px, 38vw, 480px)" }}
+      style={{ minHeight: "100vh" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* ── Slides ────────────────────────────────── */}
       {SLIDES.map((s, i) => (
         <div
           key={s.id}
-          className="absolute inset-0 flex transition-opacity duration-700"
+          className="absolute inset-0 transition-opacity duration-700"
           style={{ opacity: i === current ? 1 : 0, pointerEvents: i === current ? "auto" : "none" }}
         >
-          {/* METADE ESQUERDA — foto + overlay */}
-          <div className="relative w-1/2 overflow-hidden">
+          {/* Imagem de fundo em tela cheia */}
+          <div className="absolute inset-0">
             {s.photo ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={s.photo}
                 alt={s.photoAlt}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="h-full w-full object-cover"
               />
             ) : (
-              /* Placeholder enquanto não tem foto real */
-              <div
-                className="absolute inset-0 flex items-center justify-center text-6xl sm:text-8xl"
-                style={{ background: "#D6E3F0" }}
-              >
-                {s.placeholderIcon}
-              </div>
+              <div className="h-full w-full" style={{ background: "linear-gradient(135deg, #162D4A 0%, #1F3A5F 50%, #2B5080 100%)" }} />
             )}
-            {/* Overlay colorido */}
-            <div
-              className="absolute inset-0"
-              style={{ background: s.overlayColor }}
-            />
+            {/* Overlay escuro */}
+            <div className="absolute inset-0" style={{ background: s.overlay }} />
           </div>
 
-          {/* METADE DIREITA — conteúdo */}
-          <div
-            className="relative flex w-1/2 items-center overflow-hidden px-6 sm:px-10 lg:px-16"
-            style={{ background: s.bgRight }}
-          >
-            {/* Círculo decorativo de fundo */}
-            <div
-              className="pointer-events-none absolute -right-16 -top-16 rounded-full"
+          {/* Conteúdo — alinhado à esquerda no terço inferior, igual ao Vitta */}
+          <div className="relative flex min-h-[100vh] flex-col justify-end px-6 pb-28 sm:px-12 lg:px-20">
+            <p
+              className="mb-4 text-[11px] font-bold uppercase tracking-[0.28em]"
+              style={{ color: "#D4A11E" }}
+            >
+              {s.eyebrow}
+            </p>
+            <h1
+              className="mb-5 font-serif font-semibold leading-[1.08] text-white"
               style={{
-                width: "clamp(140px, 30vw, 380px)",
-                height: "clamp(140px, 30vw, 380px)",
-                background: s.circleColor,
+                fontSize: "clamp(2.4rem, 5.5vw, 5.2rem)",
+                letterSpacing: "-0.01em",
+                maxWidth: "14ch",
               }}
-            />
-            <div
-              className="pointer-events-none absolute -bottom-10 right-10 rounded-full opacity-40"
-              style={{
-                width: "clamp(60px, 12vw, 150px)",
-                height: "clamp(60px, 12vw, 150px)",
-                background: s.circleColor,
-              }}
-            />
+            >
+              {s.headline}
+            </h1>
+            <p
+              className="mb-12 text-base leading-relaxed text-white/70 sm:text-lg"
+              style={{ maxWidth: "44ch" }}
+            >
+              {s.subtitle}
+            </p>
 
-            {/* Texto */}
-            <div className="relative z-10">
-              <p
-                className="mb-1 font-medium text-white/70"
-                style={{ fontSize: "clamp(9px, 1.2vw, 14px)" }}
-              >
-                {s.eyebrow}
-              </p>
-              <h2
-                className="font-light leading-tight text-white"
-                style={{ fontSize: "clamp(18px, 3.2vw, 52px)", letterSpacing: "-0.02em" }}
-              >
-                {s.title}
-              </h2>
-              <h2
-                className="font-extrabold leading-none text-white"
-                style={{ fontSize: "clamp(20px, 3.6vw, 58px)", letterSpacing: "-0.025em" }}
-              >
-                {s.titleBold}
-              </h2>
-
-              {/* Botão CTA */}
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-lg font-semibold text-white transition-all hover:opacity-90 active:scale-95"
-                style={{
-                  background: "#1F3A5F",
-                  padding: "clamp(6px,0.9vw,11px) clamp(14px,2vw,28px)",
-                  fontSize: "clamp(10px,1.1vw,14px)",
-                  boxShadow: "0 3px 12px rgba(0,0,0,0.25)",
-                }}
+            {/* CTA estilo Vitta: texto dourado + linha + seta */}
+            <a
+              href={s.ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex flex-col gap-3 self-start transition-opacity hover:opacity-75"
+            >
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.28em]"
+                style={{ color: "#D4A11E" }}
               >
                 {s.cta}
-              </a>
-            </div>
+              </span>
+              {/* Linha + seta estilo Vitta */}
+              <span className="flex items-center gap-3">
+                <span
+                  className="block h-px transition-all duration-500 group-hover:w-16"
+                  style={{ width: 40, background: "#D4A11E" }}
+                />
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#D4A11E"
+                  strokeWidth={1.5}
+                  className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                </svg>
+              </span>
+            </a>
           </div>
         </div>
       ))}
 
-      {/* ── Setas ─────────────────────────────────── */}
+      {/* Setas */}
       <button
         type="button"
         aria-label="Slide anterior"
         onClick={prev}
-        className="absolute left-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-sm transition-all hover:bg-black/40 sm:left-4"
-        style={{ width: "clamp(28px,3vw,44px)", height: "clamp(28px,3vw,44px)" }}
+        className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:left-6"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} style={{ width: "clamp(12px,1.4vw,20px)" }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-5 w-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
@@ -204,50 +170,30 @@ export default function BannerSection() {
         type="button"
         aria-label="Próximo slide"
         onClick={next}
-        className="absolute right-2 top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-sm transition-all hover:bg-black/40 sm:right-4"
-        style={{ width: "clamp(28px,3vw,44px)", height: "clamp(28px,3vw,44px)" }}
+        className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:right-6"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} style={{ width: "clamp(12px,1.4vw,20px)" }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-5 w-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
 
-      {/* ── Dots ──────────────────────────────────── */}
-      <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 sm:bottom-4">
-        {SLIDES.map((s, i) => (
+      {/* Dots */}
+      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
+        {SLIDES.map((_, i) => (
           <button
-            key={s.id}
+            key={i}
             type="button"
             aria-label={`Ir para slide ${i + 1}`}
             onClick={() => goTo(i)}
             className="rounded-full transition-all duration-300"
             style={{
-              width:  i === current ? "clamp(18px,2vw,28px)" : "clamp(6px,0.7vw,9px)",
-              height: "clamp(6px,0.7vw,9px)",
-              background: i === current ? "#FFFFFF" : "rgba(255,255,255,0.45)",
+              width: i === current ? 24 : 8,
+              height: 8,
+              background: i === current ? "#FFFFFF" : "rgba(255,255,255,0.4)",
             }}
           />
         ))}
       </div>
-
-      {/* ── Barra de progresso ─────────────────────── */}
-      {!paused && (
-        <div
-          key={current}
-          className="absolute bottom-0 left-0 z-20 h-[3px]"
-          style={{
-            background: "#D4A11E",
-            animation: `progress-bar ${AUTO_PLAY_MS}ms linear forwards`,
-          }}
-        />
-      )}
-
-      <style>{`
-        @keyframes progress-bar {
-          from { width: 0%; }
-          to   { width: 100%; }
-        }
-      `}</style>
     </section>
   );
 }

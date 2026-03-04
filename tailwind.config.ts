@@ -29,7 +29,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans:  ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
       },
       fontSize: {
         "display": ["clamp(2.25rem, 5vw, 3.75rem)", { lineHeight: "1.1", fontWeight: "800" }],
