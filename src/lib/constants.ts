@@ -17,6 +17,6 @@ export const NAV_LINKS = [
   { label: "A clínica",   href: "/a-clinica" },
   { label: "Nossa equipe", href: "/nossa-equipe" },
   { label: "Tratamentos", href: "/tratamentos" },
-  { label: "Vídeos",      href: "#videos" },
+  { label: "Resultados Reais", href: "/resultados-reais" },
   { label: "Contato",     href: "/contato" },
 ] as const;
