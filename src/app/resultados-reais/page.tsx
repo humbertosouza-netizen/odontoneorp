@@ -1,54 +1,13 @@
 import Link from "next/link";
 import { WHATSAPP_LINK } from "@/lib/constants";
 import type { Metadata } from "next";
+import GaleriaResultados from "@/components/GaleriaResultados";
 
 export const metadata: Metadata = {
   title: "Resultados Reais | OdontoNeo Infinity – São José do Rio Preto",
   description:
-    "Veja os resultados reais de pacientes da OdontoNeo Infinity: antes e depois de implantes, lentes de contato dental, clareamento e harmonização orofacial. Dr. Gustavo Giolo – CRO-SP 140.793.",
+    "Veja os resultados reais de pacientes da OdontoNeo Infinity: antes e depois de implantes, lentes de contato dental, prótese protocolo e mais. Dr. Gustavo Giolo – CRO-SP 140.793.",
 };
-
-/* ─── Casos antes/depois ─────────────────────────────────────
-   Para adicionar novos casos, basta incluir um objeto neste array
-   com a imagem combinada (antes à esquerda, depois à direita).
-   As imagens devem ser adicionadas na pasta /public.
-──────────────────────────────────────────────────────────── */
-const CASOS = [
-  {
-    id: "caso-01",
-    paciente: "Paciente 01",
-    tratamento: "Lentes de Contato Dental",
-    descricao: "Transformação completa do sorriso com lentes de porcelana ultra-finas, corrigindo cor, forma e alinhamento dos dentes.",
-    foto: "/antes-depois-1.jpg",
-    categoria: "Estética",
-  },
-  {
-    id: "caso-02",
-    paciente: "Paciente 02",
-    tratamento: "Clareamento Dental",
-    descricao: "Resultado de clareamento profissional em consultório, com melhora de até 8 tons na cor dos dentes.",
-    foto: "/clareamento-dental.jpg",
-    categoria: "Estética",
-  },
-  {
-    id: "caso-03",
-    paciente: "Paciente 03",
-    tratamento: "Implante Dentário",
-    descricao: "Reabilitação oral com implante unitário. Resultado com aparência e função idênticas ao dente natural.",
-    foto: "/implante-dentario.png",
-    categoria: "Implantodontia",
-  },
-  {
-    id: "caso-04",
-    paciente: "Paciente 04",
-    tratamento: "Prótese Protocolo",
-    descricao: "Reabilitação total da arcada com prótese protocolo fixa sobre implantes. Paciente recuperou função e estética.",
-    foto: "/protese-protocolo.png",
-    categoria: "Implantodontia",
-  },
-];
-
-const CATEGORIAS = ["Todos", "Estética", "Implantodontia"];
 
 const DEPOIMENTOS = [
   {
@@ -79,9 +38,9 @@ export default function ResultadosReaisPage() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/antes-depois-1.jpg"
+          src="/resultados-5-destaque.jpeg"
           alt="Resultados reais OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.92) 0%, rgba(5,10,22,0.5) 55%, rgba(5,10,22,0.1) 100%)" }} />
 
@@ -102,144 +61,14 @@ export default function ResultadosReaisPage() {
             Resultados Reais
           </h1>
           <p className="text-sm leading-relaxed text-white/60" style={{ maxWidth: "44ch" }}>
-            Fotos reais de pacientes que confiaram no Dr. Gustavo Giolo e transformaram seus sorrisos.
-            Resultados individuais. Imagens publicadas com autorização.
+            Fotos e vídeos reais de pacientes que confiaram na OdontoNeo Infinity e
+            transformaram seus sorrisos. Resultados individuais. Imagens publicadas com autorização.
           </p>
         </div>
       </section>
 
-      {/* ── Intro ── */}
-      <section className="border-b py-10 text-center" style={{ borderColor: "#F0F0F0" }}>
-        <div className="mx-auto max-w-2xl px-6">
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: "#D4A11E" }}>
-              Antes & Depois
-            </span>
-            <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
-          </div>
-          <p className="text-base leading-relaxed" style={{ color: "#4A4A4A" }}>
-            Cada sorriso conta uma história. Aqui você encontra resultados reais de tratamentos
-            realizados na OdontoNeo Infinity — com transparência e ética em cada caso.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Grid de casos ── */}
-      <section className="mx-auto max-w-6xl px-6 py-16 sm:px-10 lg:px-12 lg:py-20">
-
-        {/* Filtros por categoria */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
-          {CATEGORIAS.map((cat, i) => (
-            <span
-              key={cat}
-              className="rounded-full px-5 py-2 text-xs font-bold uppercase tracking-widest"
-              style={{
-                background: i === 0 ? "#1F3A5F" : "#F7F4EE",
-                color: i === 0 ? "#FFFFFF" : "#4A4A4A",
-                border: i === 0 ? "none" : "1px solid #EDEDED",
-              }}
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-
-        {/* Casos — grid com destaque no primeiro */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CASOS.map((caso, idx) => (
-            <div
-              key={caso.id}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${idx === 0 ? "sm:col-span-2 lg:col-span-2" : ""}`}
-              style={{ border: "1px solid #EDEDED", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
-            >
-              {/* Foto resultado */}
-              <div
-                className="relative overflow-hidden"
-                style={{ aspectRatio: idx === 0 ? "16/9" : "4/3" }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={caso.foto}
-                  alt={`${caso.paciente} – ${caso.tratamento}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center",
-                    transition: "transform 0.6s ease",
-                  }}
-                  className="group-hover:scale-[1.03]"
-                />
-
-                {/* Badge categoria */}
-                <span
-                  className="absolute right-4 top-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white"
-                  style={{ background: "rgba(31,58,95,0.85)", backdropFilter: "blur(8px)" }}
-                >
-                  {caso.categoria}
-                </span>
-
-                {/* Labels Antes / Depois */}
-                <div className="absolute bottom-3 left-3 right-3 flex justify-between">
-                  <span className="rounded-lg bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/80 backdrop-blur-sm">
-                    Antes
-                  </span>
-                  <span className="rounded-lg px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm" style={{ background: "rgba(212,161,30,0.85)" }}>
-                    Depois
-                  </span>
-                </div>
-              </div>
-
-              {/* Conteúdo */}
-              <div className="flex flex-1 flex-col p-5">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#D4A11E" }} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#D4A11E" }}>
-                    {caso.tratamento}
-                  </span>
-                </div>
-                <h3 className="font-serif mb-2 font-semibold" style={{ fontSize: "1.05rem", color: "#1F3A5F" }}>
-                  {caso.paciente}
-                </h3>
-                <p className="mb-5 text-xs leading-relaxed" style={{ color: "#7A8694" }}>
-                  {caso.descricao}
-                </p>
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] transition-opacity hover:opacity-70"
-                  style={{ color: "#D4A11E" }}
-                >
-                  Quero um resultado assim
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-3.5 w-3.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-
-          {/* Card placeholder — para novos casos */}
-          <div
-            className="flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-12 text-center"
-            style={{ borderColor: "#DEDEDE" }}
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ background: "#F7F4EE" }}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#D4A11E" strokeWidth={1.5} className="h-5 w-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            </div>
-            <p className="text-xs font-semibold" style={{ color: "#B0B0B0" }}>Novos casos em breve</p>
-            <p className="text-[11px]" style={{ color: "#C8C8C8" }}>Adicionamos resultados regularmente</p>
-          </div>
-        </div>
-
-        <p className="mt-6 text-center text-[11px]" style={{ color: "#B0B0B0" }}>
-          * Resultados individuais. Fotos publicadas com autorização dos pacientes. CRO-SP 140.793.
-        </p>
-      </section>
+      {/* ── Galerias (fotos + vídeos) — componente cliente ── */}
+      <GaleriaResultados />
 
       {/* ── Depoimentos ── */}
       <section className="py-20 sm:py-24" style={{ background: "#F7F4EE" }}>
@@ -264,7 +93,6 @@ export default function ResultadosReaisPage() {
                 className="flex flex-col rounded-2xl bg-white p-7"
                 style={{ border: "1px solid #EDEDED", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
               >
-                {/* Estrelas */}
                 <div className="mb-4 flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <svg key={s} viewBox="0 0 24 24" fill="#D4A11E" className="h-4 w-4">
@@ -272,16 +100,11 @@ export default function ResultadosReaisPage() {
                     </svg>
                   ))}
                 </div>
-
                 <p className="mb-6 flex-1 text-sm leading-relaxed" style={{ color: "#4A4A4A" }}>
                   &ldquo;{d.texto}&rdquo;
                 </p>
-
                 <div className="flex items-center gap-3">
-                  <div
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-serif text-sm font-semibold text-white"
-                    style={{ background: "#1F3A5F" }}
-                  >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-serif text-sm font-semibold text-white" style={{ background: "#1F3A5F" }}>
                     {d.nome.charAt(0)}
                   </div>
                   <div>
@@ -298,7 +121,6 @@ export default function ResultadosReaisPage() {
       {/* ── CTA Final ── */}
       <section className="relative overflow-hidden py-24 text-center" style={{ background: "#0C1829" }}>
         <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #D4A11E 0%, transparent 70%)" }} aria-hidden />
-
         <div className="relative px-6">
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="block h-px w-10" style={{ background: "#D4A11E" }} />
