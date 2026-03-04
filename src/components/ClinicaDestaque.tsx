@@ -64,26 +64,6 @@ export default function ClinicaDestaque() {
             </div>
           </div>
 
-          {/* Badge flutuante — detalhe premium */}
-          <div
-            className="absolute -bottom-5 -right-4 hidden flex-col items-center justify-center rounded-full bg-white shadow-lg lg:flex"
-            style={{
-              width: 96,
-              height: 96,
-              border: "2px solid #D4A11E",
-              boxShadow: "0 8px 28px rgba(212,161,30,0.2)",
-            }}
-          >
-            <span
-              className="font-serif text-2xl font-semibold leading-none"
-              style={{ color: "#D4A11E" }}
-            >
-              10+
-            </span>
-            <span className="mt-0.5 text-center text-[9px] font-bold uppercase leading-tight tracking-wide text-gray-500">
-              anos de<br />excelência
-            </span>
-          </div>
         </div>
 
         {/* ── Conteúdo — direita ── */}

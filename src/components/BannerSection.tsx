@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import { WHATSAPP_LINK } from "@/lib/constants";
 
 type Slide = {
@@ -18,40 +19,54 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     id: 1,
-    eyebrow: "Invisalign® e ortodontia de excelência",
-    headline: "Ortodontia Invisível",
-    subtitle: "Alinhe seus dentes com conforto e discrição. Resultado estético e funcional sem aparelho convencional.",
-    cta: "Fale Conosco Aqui",
+    eyebrow: "OdontoNeo Infinity · São José do Rio Preto",
+    headline: "Vamos iniciar seu protocolo?",
+    subtitle: "Do diagnóstico ao resultado final, a OdontoNeo oferece um protocolo completo, moderno e humanizado para transformar o seu sorriso.",
+    cta: "Agendar Avaliação",
     ctaHref: WHATSAPP_LINK,
-    photo: "/banner-alinhador.png",
-    photoAlt: "Alinhador Transparente",
-    overlay: "rgba(15,35,60,0.72)",
+    photo: "/img-protocolo.jpeg",
+    photoAlt: "Protocolo OdontoNeo",
+    overlay: "rgba(8,20,44,0.68)",
   },
   {
     id: 2,
-    eyebrow: "Solução definitiva para dentes perdidos",
-    headline: "Implante Dentário",
-    subtitle: "Na OdontoNeo Infinity oferecemos a solução permanente e de alto padrão para o seu caso.",
-    cta: "Agendar Avaliação",
-    ctaHref: WHATSAPP_LINK,
-    photo: "/foto-clinica-1.jpg",
-    photoAlt: "Clínica OdontoNeo",
-    overlay: "rgba(15,35,60,0.7)",
-  },
-  {
-    id: 3,
-    eyebrow: "Transforme seu sorriso em dias",
-    headline: "Lentes de Contato Dental",
-    subtitle: "Finas capas de porcelana que transformam cor, forma e tamanho dos dentes com resultado natural.",
-    cta: "Saiba Mais",
-    ctaHref: WHATSAPP_LINK,
-    photo: "/recepcao.jpg",
-    photoAlt: "OdontoNeo Infinity",
-    overlay: "rgba(22,45,74,0.68)",
+    eyebrow: "Resultados Reais · Antes & Depois",
+    headline: "Tenha seu sorriso de volta",
+    subtitle: "Veja o processo completo do nosso serviço — do primeiro atendimento à transformação definitiva do seu sorriso.",
+    cta: "Ver Resultados Reais",
+    ctaHref: "/resultados-reais",
+    photo: "/resultados-5-destaque.jpeg",
+    photoAlt: "Resultado real OdontoNeo",
+    overlay: "rgba(8,20,44,0.60)",
   },
 ];
 
 const AUTO_PLAY_MS = 6000;
+
+function CtaInner({ cta }: { cta: string }) {
+  return (
+    <>
+      <span className="text-[11px] font-bold uppercase tracking-[0.28em]" style={{ color: "#D4A11E" }}>
+        {cta}
+      </span>
+      <span className="flex items-center gap-3">
+        <span
+          className="block h-px transition-all duration-500 group-hover:w-16"
+          style={{ width: 40, background: "#D4A11E" }}
+        />
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#D4A11E"
+          strokeWidth={1.5}
+          className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+        </svg>
+      </span>
+    </>
+  );
+}
 
 export default function BannerSection() {
   const [current, setCurrent] = useState(0);
@@ -122,35 +137,23 @@ export default function BannerSection() {
             </p>
 
             {/* CTA estilo Vitta: texto dourado + linha + seta */}
-            <a
-              href={s.ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex flex-col gap-3 self-start transition-opacity hover:opacity-75"
-            >
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.28em]"
-                style={{ color: "#D4A11E" }}
+            {s.ctaHref.startsWith("http") ? (
+              <a
+                href={s.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex flex-col gap-3 self-start transition-opacity hover:opacity-75"
               >
-                {s.cta}
-              </span>
-              {/* Linha + seta estilo Vitta */}
-              <span className="flex items-center gap-3">
-                <span
-                  className="block h-px transition-all duration-500 group-hover:w-16"
-                  style={{ width: 40, background: "#D4A11E" }}
-                />
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#D4A11E"
-                  strokeWidth={1.5}
-                  className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-                </svg>
-              </span>
-            </a>
+                <CtaInner cta={s.cta} />
+              </a>
+            ) : (
+              <Link
+                href={s.ctaHref}
+                className="group inline-flex flex-col gap-3 self-start transition-opacity hover:opacity-75"
+              >
+                <CtaInner cta={s.cta} />
+              </Link>
+            )}
           </div>
         </div>
       ))}
