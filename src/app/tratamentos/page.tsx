@@ -202,24 +202,25 @@ export default function TratamentosPage() {
                   {/* Foto */}
                   <div
                     className="relative overflow-hidden rounded-2xl lg:[direction:ltr]"
-                    style={{ aspectRatio: "4/3" }}
+                    style={{
+                      minHeight: "clamp(320px, 48vw, 540px)",
+                      background: "#F0EDE6",
+                    }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={t.foto}
                       alt={t.titulo}
                       style={{
+                        position: "absolute",
+                        inset: 0,
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
+                        objectFit: "contain",
                         objectPosition: "center",
                         display: "block",
+                        padding: "12px",
                       }}
-                    />
-                    {/* Overlay sutil */}
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "linear-gradient(135deg, rgba(31,58,95,0.08) 0%, transparent 60%)" }}
                     />
                   </div>
 
