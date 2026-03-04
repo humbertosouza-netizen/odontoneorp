@@ -13,10 +13,10 @@ export const INSTAGRAM_HANDLE = "@odontoneosjriopreto";
 export const GOOGLE_MAPS_LINK = "https://share.google/GVcRtHTS1HqbMcAet";
 
 export const NAV_LINKS = [
-  { label: "Home page",    href: "#inicio" },
-  { label: "A clínica",   href: "#clinica" },
-  { label: "Nossa equipe", href: "#dentista" },
-  { label: "Tratamentos", href: "#tratamentos" },
+  { label: "Home page",    href: "/" },
+  { label: "A clínica",   href: "/a-clinica" },
+  { label: "Nossa equipe", href: "/nossa-equipe" },
+  { label: "Tratamentos", href: "/tratamentos" },
   { label: "Vídeos",      href: "#videos" },
-  { label: "Contato",     href: "#contato" },
+  { label: "Contato",     href: "/contato" },
 ] as const;
