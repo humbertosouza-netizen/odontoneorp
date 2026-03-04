@@ -1,148 +1,146 @@
 import { WHATSAPP_LINK } from "@/lib/constants";
 
-/* ─── Blob shapes via border-radius orgânico ────────────
-   Substitua os <div class="photo-blob"> por <img> ou
-   <Image> do Next.js apontando para /public/clinica-X.jpg
-──────────────────────────────────────────────────────── */
-
 export default function ClinicaDestaque() {
   return (
-    <section className="relative overflow-hidden" style={{ background: "#C8A96A" }}>
+    <section id="clinica" className="relative overflow-hidden bg-white py-24 lg:py-36">
 
-      {/* ── Onda superior (branca) ── */}
-      <div className="pointer-events-none absolute left-0 right-0 top-0">
-        <svg
-          viewBox="0 0 1440 90"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="block w-full"
-          style={{ height: "clamp(36px, 6vw, 90px)" }}
-        >
+      {/* ── Elemento decorativo abstrato (canto direito) — igual ao Vitta ── */}
+      <div
+        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-20"
+        style={{ width: "clamp(120px, 18vw, 280px)" }}
+        aria-hidden
+      >
+        <svg viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
-            d="M0,0 C360,90 1080,90 1440,0 L1440,0 L0,0 Z"
-            fill="#ffffff"
+            d="M180 10 C140 60, 60 80, 80 140 C100 200, 190 200, 170 270 C150 340, 60 340, 40 390"
+            stroke="#D4A11E"
+            strokeWidth="1.5"
+            strokeLinecap="round"
           />
+          <path
+            d="M160 30 C120 80, 40 100, 60 160 C80 220, 170 220, 150 290 C130 360, 40 360, 20 400"
+            stroke="#D4A11E"
+            strokeWidth="0.8"
+            strokeLinecap="round"
+            opacity="0.5"
+          />
+          <circle cx="80" cy="140" r="3" fill="#D4A11E" />
+          <circle cx="170" cy="270" r="2" fill="#D4A11E" opacity="0.6" />
         </svg>
       </div>
 
-      {/* ── Onda inferior (branca) ── */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 90"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="block w-full"
-          style={{ height: "clamp(36px, 6vw, 90px)" }}
-        >
-          <path
-            d="M0,90 C360,0 1080,0 1440,90 L1440,90 L0,90 Z"
-            fill="#ffffff"
-          />
-        </svg>
-      </div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
 
-      {/* ── Conteúdo ── */}
-      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 py-20 sm:gap-10 sm:px-6 sm:py-24 lg:grid-cols-3 lg:px-8 lg:py-28">
-
-        {/* ── Blob foto 1 — esquerda ── */}
-        <div className="flex justify-center">
+        {/* ── Foto — esquerda, retrato sem recorte ── */}
+        <div className="relative">
           <div
-            className="relative flex items-center justify-center overflow-hidden"
-            style={{
-              width:  "clamp(200px, 22vw, 320px)",
-              height: "clamp(220px, 26vw, 360px)",
-              /* Blob orgânico */
-              borderRadius: "62% 38% 46% 54% / 44% 55% 45% 56%",
-              border: "5px solid #1F3A5F",
-              background: "#D6E6F2",
-              boxShadow: "0 8px 32px rgba(31,58,95,0.22)",
-            }}
+            className="relative overflow-hidden"
+            style={{ borderRadius: "4px", aspectRatio: "4/5" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/recepcao.jpg"
-              alt="Recepção da OdontoNeo Infinity"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+              src="/recepcao-ampla.jpg"
+              alt="Clínica OdontoNeo Infinity — São José do Rio Preto"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+                display: "block",
+              }}
             />
+          </div>
+
+          {/* Badge flutuante — detalhe premium */}
+          <div
+            className="absolute -bottom-5 -right-4 hidden flex-col items-center justify-center rounded-full bg-white shadow-lg lg:flex"
+            style={{
+              width: 96,
+              height: 96,
+              border: "2px solid #D4A11E",
+              boxShadow: "0 8px 28px rgba(212,161,30,0.2)",
+            }}
+          >
+            <span
+              className="font-serif text-2xl font-semibold leading-none"
+              style={{ color: "#D4A11E" }}
+            >
+              10+
+            </span>
+            <span className="mt-0.5 text-center text-[9px] font-bold uppercase leading-tight tracking-wide text-gray-500">
+              anos de<br />excelência
+            </span>
           </div>
         </div>
 
-        {/* ── Texto central ── */}
-        <div className="text-center lg:text-left">
-          <p
-            className="mb-2 text-xs font-bold uppercase tracking-widest"
-            style={{ color: "#1F3A5F" }}
-          >
-            OdontoNeo Infinity
-          </p>
+        {/* ── Conteúdo — direita ── */}
+        <div className="flex flex-col items-start">
 
+          {/* Linha dourada + eyebrow */}
+          <div className="mb-6 flex items-center gap-3">
+            <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
+            <span
+              className="text-[10px] font-bold uppercase tracking-[0.25em]"
+              style={{ color: "#D4A11E" }}
+            >
+              Sobre a clínica
+            </span>
+          </div>
+
+          {/* Título — serif itálico igual ao Vitta */}
           <h2
-            className="mb-5 leading-tight"
+            className="font-serif mb-6 font-semibold italic leading-tight"
             style={{
-              fontSize: "clamp(1.7rem, 3.2vw, 3rem)",
-              letterSpacing: "-0.02em",
-              color: "#1F3A5F",
+              fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
+              color: "#D4A11E",
+              letterSpacing: "-0.01em",
             }}
           >
-            Conforto que{" "}
-            <span className="font-extrabold" style={{ color: "#1F3A5F" }}>
-              impressiona
-            </span>
+            OdontoNeo Infinity
           </h2>
 
+          {/* Texto descritivo */}
           <p
-            className="mb-3 text-sm leading-relaxed sm:text-base"
-            style={{ color: "rgba(31,58,95,0.85)" }}
+            className="mb-4 text-base leading-relaxed"
+            style={{ color: "#4A4A4A", maxWidth: "46ch" }}
           >
-            A OdontoNeo Infinity foi projetada para oferecer uma experiência
-            odontológica de alto padrão em São José do Rio Preto – SP.
+            A OdontoNeo Infinity nasceu do sonho de oferecer uma odontologia de
+            verdadeiro alto padrão em São José do Rio Preto – SP, unindo tecnologia
+            de última geração com um atendimento humanizado e acolhedor.
           </p>
           <p
-            className="mb-7 text-sm leading-relaxed sm:text-base"
-            style={{ color: "rgba(31,58,95,0.75)" }}
+            className="mb-10 text-base leading-relaxed"
+            style={{ color: "#7A8694", maxWidth: "46ch" }}
           >
-            Nossa estrutura conta com equipamentos de última geração, ambientes
-            climatizados, salas privativas e um design que valoriza o seu
-            bem‑estar desde o primeiro momento.
+            Nossa estrutura foi projetada para que você se sinta confortável desde
+            a chegada: ambientes climatizados, salas privativas e equipamentos dos
+            melhores protocolos do mercado, tudo para valorizar o seu sorriso.
           </p>
 
+          {/* CTA outline — igual ao Vitta */}
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl px-7 py-3 text-sm font-bold text-white transition-all hover:opacity-90"
+            className="group inline-flex items-center gap-3 border px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:bg-[#1F3A5F] hover:border-[#1F3A5F] hover:text-white"
             style={{
-              background: "#1F3A5F",
-              boxShadow: "0 4px 16px rgba(31,58,95,0.3)",
+              color: "#1F3A5F",
+              borderColor: "#1F3A5F",
+              borderRadius: "2px",
             }}
           >
             Conheça a Clínica
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </a>
         </div>
-
-        {/* ── Blob foto 2 — direita ── */}
-        <div className="flex justify-center">
-          <div
-            className="relative flex items-center justify-center overflow-hidden"
-            style={{
-              width:  "clamp(200px, 22vw, 320px)",
-              height: "clamp(220px, 26vw, 360px)",
-              /* Blob orgânico espelhado */
-              borderRadius: "38% 62% 54% 46% / 55% 44% 56% 45%",
-              border: "5px solid #1F3A5F",
-              background: "#D6E6F2",
-              boxShadow: "0 8px 32px rgba(31,58,95,0.22)",
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/foto-clinica-1.jpg"
-              alt="Clínica OdontoNeo Infinity"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-            />
-          </div>
-        </div>
-
       </div>
     </section>
   );
