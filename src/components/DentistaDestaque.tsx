@@ -40,24 +40,23 @@ export default function DentistaDestaque() {
           </div>
 
           <h2
-            className="font-serif mb-5 font-semibold italic leading-tight"
+            className="font-serif mb-5 font-semibold leading-tight"
             style={{
-              fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
-              color: "#D4A11E",
+              fontSize: "clamp(1.7rem, 3vw, 2.8rem)",
+              color: "#0E0E0E",
               letterSpacing: "-0.01em",
             }}
           >
-            Profissionais<br />Especializados
+            A Excelência por trás do seu{" "}
+            <em className="not-italic" style={{ color: "#D4A11E" }}>Novo Sorriso</em>
           </h2>
 
-          <p className="mb-3 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "44ch" }}>
-            Nossa equipe é especializada em cada área em que atua, com alto nível
-            de conhecimento, preparo e dedicação a cada paciente.
-          </p>
-          <p className="mb-10 text-sm leading-relaxed" style={{ color: "#7A8694", maxWidth: "44ch" }}>
-            Sob a liderança do {DENTISTA}, utilizamos as tecnologias mais avançadas
-            para garantir resultados estéticos e funcionais de excelência —
-            do implante mais complexo ao sorriso que você sempre sonhou.
+          <p className="mb-10 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "44ch" }}>
+            O nível de detalhe que o seu sorriso exige só pode ser entregue por
+            profissionais especializados. Sob a liderança do{" "}
+            <strong style={{ color: "#1F3A5F" }}>{DENTISTA} (Implantodontista e Especialista em Reabilitação Oral)</strong>,
+            combinamos arte, ciência e tecnologia para entregar resultados estéticos
+            inquestionáveis. Você está nas mãos de quem realmente entende do assunto.
           </p>
 
           {/* Botão outline estilo Vitta */}

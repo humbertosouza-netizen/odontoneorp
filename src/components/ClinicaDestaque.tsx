@@ -80,34 +80,31 @@ export default function ClinicaDestaque() {
             </span>
           </div>
 
-          {/* Título — serif itálico igual ao Vitta */}
+          {/* Título */}
           <h2
-            className="font-serif mb-6 font-semibold italic leading-tight"
+            className="font-serif mb-6 font-semibold leading-tight"
             style={{
-              fontSize: "clamp(2rem, 3.5vw, 3.2rem)",
-              color: "#D4A11E",
+              fontSize: "clamp(1.7rem, 3vw, 2.8rem)",
+              color: "#0E0E0E",
               letterSpacing: "-0.01em",
             }}
           >
-            OdontoNeo Infinity
+            O Fim do Consultório Odontológico Tradicional.{" "}
+            <em className="not-italic" style={{ color: "#D4A11E" }}>
+              Bem-vindo ao Padrão Infinity.
+            </em>
           </h2>
 
           {/* Texto descritivo */}
           <p
-            className="mb-4 text-base leading-relaxed"
+            className="mb-10 text-base leading-relaxed"
             style={{ color: "#4A4A4A", maxWidth: "46ch" }}
           >
-            A OdontoNeo Infinity nasceu do sonho de oferecer uma odontologia de
-            verdadeiro alto padrão em São José do Rio Preto – SP, unindo tecnologia
-            de última geração com um atendimento humanizado e acolhedor.
-          </p>
-          <p
-            className="mb-10 text-base leading-relaxed"
-            style={{ color: "#7A8694", maxWidth: "46ch" }}
-          >
-            Nossa estrutura foi projetada para que você se sinta confortável desde
-            a chegada: ambientes climatizados, salas privativas e equipamentos dos
-            melhores protocolos do mercado, tudo para valorizar o seu sorriso.
+            Se você buscou por um <strong style={{ color: "#1F3A5F" }}>&ldquo;dentista próximo a mim&rdquo;</strong> que
+            ofereça uma experiência de verdadeiro luxo, acabou de encontrar. A OdontoNeo
+            Infinity foi projetada para redefinir o seu conceito de ir ao dentista.
+            Ambientes climatizados, salas privativas e um atendimento focado exclusivamente
+            em você, do início ao fim da sua jornada.
           </p>
 
           {/* CTA outline — igual ao Vitta */}

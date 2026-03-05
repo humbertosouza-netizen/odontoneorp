@@ -45,7 +45,7 @@ export default function AgendaSection() {
         <div className="mb-5 flex items-center justify-center gap-3">
           <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
           <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "#D4A11E" }}>
-            Próximo passo
+            Vagas limitadas por mês
           </span>
           <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
         </div>
@@ -59,16 +59,19 @@ export default function AgendaSection() {
             lineHeight: 1.12,
           }}
         >
-          Agende uma consulta
+          Pronto para elevar o nível<br />
+          <em className="not-italic" style={{ color: "#D4A11E" }}>do seu sorriso?</em>
         </h2>
 
         {/* Subtítulo */}
         <p
           className="mx-auto mb-12 text-base leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.55)", maxWidth: "46ch" }}
+          style={{ color: "rgba(255,255,255,0.55)", maxWidth: "52ch" }}
         >
-          Dê o primeiro passo para transformar o seu sorriso. Escolha a forma
-          mais prática de entrar em contato com a OdontoNeo Infinity.
+          O Dr. Gustavo Giolo realiza um número limitado de reabilitações por mês
+          para garantir o padrão de excelência da OdontoNeo. Veja como é simples
+          marcar sua consulta com nossa equipe e{" "}
+          <strong style={{ color: "rgba(255,255,255,0.85)" }}>garanta seu horário agora antes que a agenda feche.</strong>
         </p>
 
         {/* Botões lado a lado */}

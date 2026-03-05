@@ -63,33 +63,44 @@ export default function TecnologiaSection() {
           <h2
             className="font-serif mb-5 font-semibold leading-tight"
             style={{
-              fontSize: "clamp(1.9rem, 3.2vw, 3rem)",
+              fontSize: "clamp(1.7rem, 3vw, 2.8rem)",
               color: "#0E0E0E",
               letterSpacing: "-0.01em",
             }}
           >
-            Tem medo de<br />
-            <em className="not-italic" style={{ color: "#1F3A5F" }}>dentista?</em>{" "}
-            <br className="hidden sm:block" />
-            <span
-              className="font-serif italic"
-              style={{ color: "#D4A11E" }}
-            >
-              Acalme-se.
-            </span>
+            <em className="not-italic" style={{ color: "#1F3A5F" }}>&ldquo;Tenho medo de dentista.</em>{" "}
+            <span style={{ color: "#D4A11E" }}>E agora?&rdquo;</span>
           </h2>
 
           {/* Texto principal */}
           <p className="mb-4 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "46ch" }}>
-            Sabemos que muitos pacientes evitam o dentista por medo ou experiências
-            dolorosas do passado. Na OdontoNeo Infinity, isso é diferente.
+            Nós entendemos. Por isso, criamos o{" "}
+            <strong style={{ color: "#1F3A5F" }}>Protocolo Confort</strong>. Esqueça as agulhas
+            assustadoras e o barulho que dá aflição. Utilizamos{" "}
+            <strong style={{ color: "#1F3A5F" }}>sedação consciente</strong> e{" "}
+            <strong style={{ color: "#1F3A5F" }}>anestesia computadorizada de microprecisão</strong>.
           </p>
           <p className="mb-10 text-base leading-relaxed" style={{ color: "#7A8694", maxWidth: "46ch" }}>
-            Utilizamos tecnologias de ponta que garantem{" "}
-            <strong style={{ color: "#1F3A5F" }}>0 dor durante os procedimentos</strong>,
-            com um ambiente criado para que você se sinta seguro, acolhido e tranquilo
-            desde o primeiro momento.
+            Você relaxa em um ambiente seguro enquanto nós cuidamos de tudo. O único
+            &ldquo;risco&rdquo; é você sair daqui querendo sorrir para todo mundo.
           </p>
+
+          {/* Selo 0 Dor */}
+          <div
+            className="mb-10 inline-flex items-center gap-3 rounded-full px-5 py-3"
+            style={{ background: "rgba(31,58,95,0.08)", border: "1px solid rgba(31,58,95,0.15)" }}
+          >
+            <span
+              className="font-serif text-2xl font-bold leading-none"
+              style={{ color: "#D4A11E" }}
+            >
+              0
+            </span>
+            <div>
+              <p className="text-sm font-bold" style={{ color: "#1F3A5F" }}>Dor Garantido.</p>
+              <p className="text-[10px] uppercase tracking-widest" style={{ color: "#7A8694" }}>Protocolo Confort OdontoNeo</p>
+            </div>
+          </div>
 
           {/* Lista de diferenciais */}
           <ul className="mb-10 flex flex-col gap-3">

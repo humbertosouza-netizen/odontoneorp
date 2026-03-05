@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import BannerSection from "@/components/BannerSection";
 import ClinicaDestaque from "@/components/ClinicaDestaque";
+import DepoimentosVideoSection from "@/components/DepoimentosVideoSection";
 import ServicosSection from "@/components/ServicosSection";
 import DentistaDestaque from "@/components/DentistaDestaque";
 import AgendaSection from "@/components/AgendaSection";
@@ -15,10 +16,11 @@ export default function Home() {
       <main>
         <BannerSection />
         <ClinicaDestaque />
+        <DepoimentosVideoSection />
         <ServicosSection />
         <DentistaDestaque />
-        <AgendaSection />
         <TecnologiaSection />
+        <AgendaSection />
       </main>
       <Footer />
       <WhatsAppFab />

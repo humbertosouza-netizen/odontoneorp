@@ -29,7 +29,7 @@ const DEPOIMENTOS = [
 
 export default function ResultadosReaisPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen" style={{ background: "#080F1E" }}>
 
       {/* ── Hero ── */}
       <section
@@ -42,7 +42,7 @@ export default function ResultadosReaisPage() {
           alt="Resultados reais OdontoNeo Infinity"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.92) 0%, rgba(5,10,22,0.5) 55%, rgba(5,10,22,0.1) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,15,30,1) 0%, rgba(8,15,30,0.6) 55%, rgba(8,15,30,0.15) 100%)" }} />
 
         <div className="relative z-10 w-full px-6 pb-14 sm:px-12 lg:px-20">
           <Link href="/" className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white/50 transition-colors hover:text-white/80">
@@ -60,7 +60,7 @@ export default function ResultadosReaisPage() {
           >
             Resultados Reais
           </h1>
-          <p className="text-sm leading-relaxed text-white/60" style={{ maxWidth: "44ch" }}>
+          <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)", maxWidth: "44ch" }}>
             Fotos e vídeos reais de pacientes que confiaram na OdontoNeo Infinity e
             transformaram seus sorrisos. Resultados individuais. Imagens publicadas com autorização.
           </p>
@@ -70,8 +70,11 @@ export default function ResultadosReaisPage() {
       {/* ── Galerias (fotos + vídeos) — componente cliente ── */}
       <GaleriaResultados />
 
-      {/* ── Depoimentos ── */}
-      <section className="py-20 sm:py-24" style={{ background: "#F7F4EE" }}>
+      {/* ── Depoimentos — tema escuro ── */}
+      <section
+        className="border-t py-20 sm:py-24"
+        style={{ background: "#0C1829", borderColor: "rgba(255,255,255,0.06)" }}
+      >
         <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-12">
           <div className="mb-12 text-center">
             <div className="mb-4 flex items-center justify-center gap-3">
@@ -81,17 +84,21 @@ export default function ResultadosReaisPage() {
               </span>
               <span className="block h-px w-8" style={{ background: "#D4A11E" }} />
             </div>
-            <h2 className="font-serif font-semibold" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", color: "#0E0E0E" }}>
+            <h2 className="font-serif font-semibold text-white" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)" }}>
               Depoimentos
             </h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
             {DEPOIMENTOS.map((d, i) => (
               <div
                 key={i}
-                className="flex flex-col rounded-2xl bg-white p-7"
-                style={{ border: "1px solid #EDEDED", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+                className="flex flex-col rounded-2xl p-7"
+                style={{
+                  background: "#0A1628",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
+                }}
               >
                 <div className="mb-4 flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, s) => (
@@ -100,15 +107,18 @@ export default function ResultadosReaisPage() {
                     </svg>
                   ))}
                 </div>
-                <p className="mb-6 flex-1 text-sm leading-relaxed" style={{ color: "#4A4A4A" }}>
+                <p className="mb-6 flex-1 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
                   &ldquo;{d.texto}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-serif text-sm font-semibold text-white" style={{ background: "#1F3A5F" }}>
+                  <div
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-serif text-sm font-semibold text-white"
+                    style={{ background: "rgba(31,58,95,0.8)", border: "1px solid rgba(212,161,30,0.3)" }}
+                  >
                     {d.nome.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold" style={{ color: "#0E0E0E" }}>{d.nome}</p>
+                    <p className="text-sm font-semibold text-white">{d.nome}</p>
                     <p className="text-[11px]" style={{ color: "#D4A11E" }}>{d.detalhe}</p>
                   </div>
                 </div>
