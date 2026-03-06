@@ -40,7 +40,7 @@ export default function ResultadosReaisPage() {
         <img
           src="/resultados-5-destaque.jpeg"
           alt="Resultados reais OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,15,30,1) 0%, rgba(8,15,30,0.6) 55%, rgba(8,15,30,0.15) 100%)" }} />
 

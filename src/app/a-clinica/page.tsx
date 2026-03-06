@@ -30,7 +30,7 @@ const PILARES = [
     titulo: "Excelência estética",
     descricao:
       "Unimos ciência e arte para entregar sorrisos que transformam vidas. Do implante à lente de contato dental, o padrão de qualidade nunca é negociado.",
-    foto: "/lentes-3.jpeg",
+    foto: "/protase-feita-4.jpeg",
     objectPosition: "center top",
   },
   {

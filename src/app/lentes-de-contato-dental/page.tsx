@@ -49,9 +49,9 @@ export default function LentesContatoDentalPage() {
       <section className="relative flex items-end overflow-hidden" style={{ minHeight: "clamp(420px, 65vh, 680px)" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/lentes-3.jpeg"
+          src="/lente.jpg"
           alt="Lentes de Contato Dental OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.97) 0%, rgba(5,10,22,0.55) 50%, rgba(5,10,22,0.1) 100%)" }} />
 
@@ -129,15 +129,27 @@ export default function LentesContatoDentalPage() {
       {/* ── Por que OdontoNeo ── */}
       <section className="overflow-hidden" style={{ background: "#0C1829" }}>
         <div className="mx-auto grid max-w-6xl gap-0 lg:grid-cols-2">
-          {/* Imagem — lentes-3 enquadrando o sorriso */}
-          <div className="relative" style={{ minHeight: "340px" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/lentes-3.jpeg"
-              alt="Por que escolher a OdontoNeo para sua Estética Dental"
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{ objectPosition: "center 35%" }}
-            />
+          {/* Vídeo — Por que escolher a OdontoNeo */}
+          <div className="relative flex items-center justify-center px-6 lg:px-10" style={{ minHeight: "340px" }}>
+            <div
+              className="relative w-full overflow-hidden rounded-xl"
+              style={{ aspectRatio: "9/16", maxWidth: "360px", boxShadow: "0 16px 48px rgba(0,0,0,0.55)" }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/_vBjegrgZzE?rel=0"
+                title="Por que escolher a OdontoNeo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: 0,
+                  display: "block",
+                }}
+              />
+            </div>
           </div>
           {/* Texto */}
           <div className="flex flex-col justify-center px-8 py-14 lg:px-14">

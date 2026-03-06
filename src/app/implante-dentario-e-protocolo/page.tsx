@@ -131,18 +131,30 @@ export default function ImplantePage() {
       {/* ── Tecnologia / Zero Dor ── */}
       <section className="overflow-hidden" style={{ background: "#0C1829" }}>
         <div className="mx-auto grid max-w-6xl gap-0 lg:grid-cols-2">
-          {/* Vídeo 0 Dor — YouTube */}
+          {/* Vídeo 0 Dor — YouTube (padrão vertical 9:16) */}
           <div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center px-6 lg:px-10"
             style={{ background: "#050A16" }}
           >
-            <iframe
-              src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
-              title="Protocolo Confort — 0 Dor"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              style={{ width: "100%", aspectRatio: "9/16", maxWidth: "560px", border: 0, display: "block" }}
-            />
+            <div
+              className="relative w-full overflow-hidden rounded-xl"
+              style={{ aspectRatio: "9/16", maxWidth: "360px", boxShadow: "0 16px 48px rgba(0,0,0,0.55)" }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
+                title="Protocolo Confort — 0 Dor"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: 0,
+                  display: "block",
+                }}
+              />
+            </div>
           </div>
           {/* Texto */}
           <div className="flex flex-col justify-center px-8 py-14 lg:px-14">

@@ -17,8 +17,12 @@ const FOTOS = [
 ];
 
 const VIDEOS = [
-  { src: "/resultado-enfase-video.mp4",    titulo: "Resultado em Destaque",        subtitulo: "Transformação completa do sorriso" },
-  { src: "/porque-escolher-odontoneo.mp4", titulo: "Por que escolher a OdontoNeo", subtitulo: "Conheça nossa história e diferenciais" },
+  { youtubeId: "qjLnSf3iX10", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
+  { youtubeId: "2Ny4ZRMSPnY", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
+  { youtubeId: "YNBECyuPiBE", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
+  { youtubeId: "qJ0cmDWbpSU", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
+  { youtubeId: "LEHT9TdT1jQ", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
+  { youtubeId: "UinD_Pssjlk", titulo: "Transformação real", subtitulo: "Vida transformada com um novo sorriso" },
 ];
 
 export default function GaleriaResultados() {
@@ -142,15 +146,15 @@ export default function GaleriaResultados() {
             Transformações em Vídeo
           </h2>
           <p className="mt-1 text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>
-            Veja o processo e o resultado real dos nossos pacientes
+            Shorts de resultados reais: vidas transformadas com um novo sorriso
           </p>
         </div>
 
-        {/* Grid vídeos — 2 col desktop, 1 col mobile */}
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+        {/* Grid vídeos — 3 col desktop, 2 col tablet, 1 col mobile */}
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">
           {VIDEOS.map((v, i) => (
             <div
-              key={i}
+              key={v.youtubeId}
               className="group overflow-hidden rounded-2xl"
               style={{
                 border: "1px solid rgba(255,255,255,0.07)",
@@ -158,12 +162,20 @@ export default function GaleriaResultados() {
                 background: "#050A16",
               }}
             >
-              <div className="relative" style={{ aspectRatio: "9/16", maxHeight: "560px" }}>
-                <video
-                  src={v.src}
-                  controls
-                  playsInline
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              <div className="relative w-full overflow-hidden rounded-t-2xl" style={{ aspectRatio: "9/16" }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.youtubeId}?rel=0`}
+                  title={`${v.titulo} — ${v.subtitulo}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: 0,
+                    display: "block",
+                  }}
                 />
               </div>
               {/* Card footer */}
