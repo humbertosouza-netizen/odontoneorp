@@ -132,7 +132,7 @@ export default function AlinhadoresInvisiveis() {
           <div className="relative" style={{ minHeight: "340px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/tecnologia-2.jpg"
+              src="/tratamentos-2.jpeg"
               alt="Tecnologia digital ortodontia OdontoNeo"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />

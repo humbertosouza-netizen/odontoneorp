@@ -4,19 +4,19 @@ import { useRef, useState } from "react";
 
 const DEPOIMENTOS = [
   {
-    src: "/depoimento-moacir.mp4",
+    youtubeId: "zKc4dehYS0k",
     nome: "Sr. Moacir",
-    tratamento: "Implante Dentário",
+    tratamento: "Implantes Dentários/Prótese Protocolo",
   },
   {
-    src: "/depoimento-joana.mp4",
+    youtubeId: "LEHT9TdT1jQ",
     nome: "Sra. Joana",
-    tratamento: "Estética Dental",
+    tratamento: "Implantes Dentários/Prótese Protocolo",
   },
   {
-    src: "/depoimento-edvirges.mp4",
+    youtubeId: "UinD_Pssjlk",
     nome: "Sra. Edvirges",
-    tratamento: "Prótese Protocolo",
+    tratamento: "Implantes Dentários/Prótese Protocolo",
   },
 ];
 
@@ -130,16 +130,17 @@ export default function DepoimentosVideoSection() {
                   background: "#050A16",
                 }}
               >
-                <video
-                  src={d.src}
-                  controls
-                  playsInline
+                <iframe
+                  src={`https://www.youtube.com/embed/${d.youtubeId}?rel=0`}
+                  title={`Depoimento ${d.nome}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
                   style={{
                     width: "100%",
                     aspectRatio: "9/16",
-                    objectFit: "cover",
                     display: "block",
                     maxHeight: "480px",
+                    border: 0,
                   }}
                 />
 

@@ -31,29 +31,28 @@ export default function ClinicaDestaque() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
 
-        {/* ── Vídeo — esquerda ── */}
+        {/* ── Player YouTube (Sobre a clínica) — esquerda ── */}
         <div className="relative">
           <div
             className="relative overflow-hidden"
             style={{ borderRadius: "8px", aspectRatio: "9/16", boxShadow: "0 16px 48px rgba(0,0,0,0.14)" }}
           >
-            <video
-              src="/porque-escolher-odontoneo.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
+            <iframe
+              src="https://www.youtube.com/embed/_vBjegrgZzE?rel=0"
+              title="Por que escolher a OdontoNeo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
               style={{
+                position: "absolute",
+                inset: 0,
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                border: 0,
                 display: "block",
-                background: "#0C1829",
               }}
             />
 
-            {/* Eyebrow sobre o vídeo */}
+            {/* Eyebrow sobre o player */}
             <div
               className="pointer-events-none absolute left-0 right-0 top-0 flex items-center justify-center py-4"
               style={{ background: "linear-gradient(to bottom, rgba(5,10,22,0.7) 0%, transparent 100%)" }}
@@ -63,7 +62,6 @@ export default function ClinicaDestaque() {
               </span>
             </div>
           </div>
-
         </div>
 
         {/* ── Conteúdo — direita ── */}

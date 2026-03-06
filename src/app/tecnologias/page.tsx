@@ -14,7 +14,10 @@ const TECNOLOGIAS: {
   subtitulo: string;
   descricao: string;
   tag: string;
-  media: { tipo: "imagem" | "video"; src: string; objectPosition?: string };
+  media:
+    | { tipo: "imagem"; src: string; objectPosition?: string }
+    | { tipo: "video"; src: string }
+    | { tipo: "youtube"; youtubeId: string };
 }[] = [
   {
     numero: "01",
@@ -23,46 +26,28 @@ const TECNOLOGIAS: {
     descricao:
       "Para quem tem ansiedade ou fobia dental. O paciente fica completamente relaxado — muitas vezes dormindo — sem sentir qualquer desconforto durante o procedimento.",
     tag: "Conforto Total",
-    media: { tipo: "video", src: "/resultado-enfase-video.mp4" },
+    media: { tipo: "youtube", youtubeId: "FEj7iHAKMvU" },
   },
   {
     numero: "02",
-    titulo: "Anestesia Computadorizada",
-    subtitulo: "Microprecisão sem desconforto",
-    descricao:
-      "Anestésico liberado de forma lenta e controlada, eliminando praticamente toda a sensação de picada. Zero dor, zero susto — aplicada com equipamento de fluxo computadorizado.",
-    tag: "Zero Dor",
-    media: { tipo: "imagem", src: "/sala-atendimento.jpg", objectPosition: "center center" },
-  },
-  {
-    numero: "03",
     titulo: "Scanner Intraoral",
     subtitulo: "Sem massinha. Sem desconforto.",
     descricao:
       "O Dr. Gustavo digitaliza toda a arcada em segundos com o scanner intraoral, gerando modelos 3D para coroas cerâmicas, próteses e alinhadores com velocidade e precisão milimétrica.",
     tag: "Tecnologia 3D",
-    media: { tipo: "imagem", src: "/foto-dr-gustavo-2.jpeg", objectPosition: "center top" },
+    media: { tipo: "imagem", src: "/laser.jpg", objectPosition: "center center" },
   },
   {
-    numero: "04",
+    numero: "03",
     titulo: "Radiografia Panorâmica Digital",
     subtitulo: "Diagnóstico completo em uma imagem",
     descricao:
       "Captura todos os dentes, maxilares e estruturas adjacentes em alta resolução. O Dr. Gustavo analisa o resultado ainda na consulta para um diagnóstico claro e preciso.",
     tag: "Diagnóstico",
-    media: { tipo: "imagem", src: "/foto-clinica-1.jpg", objectPosition: "center center" },
+    media: { tipo: "imagem", src: "/radiografia.png", objectPosition: "center center" },
   },
   {
-    numero: "05",
-    titulo: "Laser Odontológico",
-    subtitulo: "Sem bisturi. Sem sangramento.",
-    descricao:
-      "Procedimentos gengivais, tratamento de aftas, desinfecção de canais e clareamento sem cortes — com recuperação muito mais rápida e mínimo desconforto pós-operatório.",
-    tag: "Inovação",
-    media: { tipo: "imagem", src: "/recepcao-ampla.jpg", objectPosition: "center center" },
-  },
-  {
-    numero: "06",
+    numero: "04",
     titulo: "Câmera Intraoral e Planejamento Digital",
     subtitulo: "Veja seu sorriso em 3D antes de começar",
     descricao:
@@ -142,8 +127,16 @@ export default function TecnologiasPage() {
               {/* Mídia — aspecto 2:3 (retrato, como Netflix) */}
               <div className="relative w-full" style={{ aspectRatio: "2/3" }}>
 
-                {/* Imagem ou vídeo como fundo */}
-                {t.media.tipo === "video" ? (
+                {/* Imagem, vídeo ou YouTube como fundo */}
+                {t.media.tipo === "youtube" ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${t.media.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${t.media.youtubeId}&controls=0&rel=0`}
+                    title={t.titulo}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{ border: 0, pointerEvents: "none" }}
+                  />
+                ) : t.media.tipo === "video" ? (
                   <video
                     src={t.media.src}
                     autoPlay
@@ -190,8 +183,8 @@ export default function TecnologiasPage() {
                   </span>
                 </div>
 
-                {/* Ícone play para o card de vídeo */}
-                {t.media.tipo === "video" && (
+                {/* Ícone play para o card de vídeo ou YouTube */}
+                {(t.media.tipo === "video" || t.media.tipo === "youtube") && (
                   <div className="absolute right-4 top-4">
                     <span
                       className="flex h-7 w-7 items-center justify-center rounded-full"

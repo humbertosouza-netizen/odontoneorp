@@ -1,38 +1,16 @@
 import Link from "next/link";
 
+const ICONE_CHECK = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5 w-5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
 const DIFERENCIAIS = [
-  {
-    icone: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-      </svg>
-    ),
-    texto: "Anestesia indolor com tecnologia de microprecisão",
-  },
-  {
-    icone: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-      </svg>
-    ),
-    texto: "Atendimento humanizado e acolhedor em cada etapa",
-  },
-  {
-    icone: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-    texto: "Sedação consciente disponível para casos de ansiedade",
-  },
-  {
-    icone: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
-    texto: "Equipamentos de última geração para diagnóstico preciso",
-  },
+  { icone: ICONE_CHECK, texto: "Sedação Endovenosa" },
+  { icone: ICONE_CHECK, texto: "Scanner Intraoral" },
+  { icone: ICONE_CHECK, texto: "Radiografia Panorâmica Digital" },
+  { icone: ICONE_CHECK, texto: "Câmera Intraoral e Planejamento Digital" },
 ];
 
 export default function TecnologiaSection() {
@@ -150,17 +128,17 @@ export default function TecnologiaSection() {
             className="relative overflow-hidden rounded-2xl"
             style={{ aspectRatio: "9/16", zIndex: 1, background: "#0C1829" }}
           >
-            <video
-              src="/resultado-enfase-video.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
+            <iframe
+              src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
+              title="Tenho medo de dentista. E agora? — Protocolo Confort"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
               style={{
+                position: "absolute",
+                inset: 0,
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                border: 0,
                 display: "block",
               }}
             />

@@ -131,16 +131,17 @@ export default function ImplantePage() {
       {/* ── Tecnologia / Zero Dor ── */}
       <section className="overflow-hidden" style={{ background: "#0C1829" }}>
         <div className="mx-auto grid max-w-6xl gap-0 lg:grid-cols-2">
-          {/* Vídeo 0 Dor — tamanho natural */}
+          {/* Vídeo 0 Dor — YouTube */}
           <div
             className="flex items-center justify-center"
             style={{ background: "#050A16" }}
           >
-            <video
-              src="/resultado-enfase-video.mp4"
-              controls
-              playsInline
-              style={{ width: "100%", height: "auto", display: "block" }}
+            <iframe
+              src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
+              title="Protocolo Confort — 0 Dor"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{ width: "100%", aspectRatio: "9/16", maxWidth: "560px", border: 0, display: "block" }}
             />
           </div>
           {/* Texto */}

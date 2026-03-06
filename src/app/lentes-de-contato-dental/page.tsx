@@ -51,7 +51,7 @@ export default function LentesContatoDentalPage() {
         <img
           src="/lentes-3.jpeg"
           alt="Lentes de Contato Dental OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 35%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.97) 0%, rgba(5,10,22,0.55) 50%, rgba(5,10,22,0.1) 100%)" }} />
 
@@ -129,13 +129,14 @@ export default function LentesContatoDentalPage() {
       {/* ── Por que OdontoNeo ── */}
       <section className="overflow-hidden" style={{ background: "#0C1829" }}>
         <div className="mx-auto grid max-w-6xl gap-0 lg:grid-cols-2">
-          {/* Imagem */}
+          {/* Imagem — lentes-3 enquadrando o sorriso */}
           <div className="relative" style={{ minHeight: "340px" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/resultados-2.jpeg"
-              alt="Resultado estética dental OdontoNeo"
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              src="/lentes-3.jpeg"
+              alt="Por que escolher a OdontoNeo para sua Estética Dental"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: "center 35%" }}
             />
           </div>
           {/* Texto */}

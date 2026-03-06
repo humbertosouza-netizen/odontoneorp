@@ -3,15 +3,17 @@
 import { useState } from "react";
 import ImageLightbox from "./ImageLightbox";
 
+const TAG_TRATAMENTO = "Implantes Dentários e Prótese Protocolo";
+
 const FOTOS = [
-  { src: "/resultado-implante.jpeg",    alt: "Resultado implante dentário",     tag: "Implante Dentário",   numero: "01" },
-  { src: "/resultados-5-destaque.jpeg", alt: "Resultado destaque OdontoNeo",    tag: "Reabilitação Oral",   numero: "02" },
-  { src: "/resultados-2.jpeg",          alt: "Resultado paciente",              tag: "Lentes de Contato",   numero: "03" },
-  { src: "/resultados-4.jpeg",          alt: "Resultado paciente",              tag: "Estética Dental",     numero: "04" },
-  { src: "/resultados-6.jpeg",          alt: "Resultado paciente",              tag: "Prótese",             numero: "05" },
-  { src: "/resultados-7.jpeg",          alt: "Resultado paciente",              tag: "Estética Dental",     numero: "06" },
-  { src: "/resultados-8.jpeg",          alt: "Resultado paciente",              tag: "Reabilitação Oral",   numero: "07" },
-  { src: "/antes-depois-1.jpg",         alt: "Antes e depois lentes de contato",tag: "Antes & Depois",      numero: "08" },
+  { src: "/resultado-implante.jpeg",    alt: "Resultado implante dentário",     tag: TAG_TRATAMENTO, numero: "01" },
+  { src: "/resultados-5-destaque.jpeg", alt: "Resultado destaque OdontoNeo",    tag: TAG_TRATAMENTO, numero: "02" },
+  { src: "/resultados-2.jpeg",          alt: "Resultado paciente",              tag: TAG_TRATAMENTO, numero: "03" },
+  { src: "/resultados-4.jpeg",          alt: "Resultado paciente",              tag: TAG_TRATAMENTO, numero: "04" },
+  { src: "/resultados-6.jpeg",          alt: "Resultado paciente",              tag: TAG_TRATAMENTO, numero: "05" },
+  { src: "/resultados-7.jpeg",          alt: "Resultado paciente",              tag: TAG_TRATAMENTO, numero: "06" },
+  { src: "/resultados-8.jpeg",          alt: "Resultado paciente",              tag: TAG_TRATAMENTO, numero: "07" },
+  { src: "/antes-depois-1.jpg",         alt: "Antes e depois lentes de contato", tag: TAG_TRATAMENTO, numero: "08" },
 ];
 
 const VIDEOS = [
