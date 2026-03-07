@@ -45,7 +45,7 @@ export default function Footer() {
         >
           <span className="block h-px w-8 transition-all duration-500 group-hover:w-14" style={{ background: "#D4A11E" }} />
           <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "#D4A11E" }}>
-            Agendar consulta
+            Clique no botão abaixo e fale comigo
           </span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#D4A11E" strokeWidth={1.5} className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

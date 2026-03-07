@@ -13,7 +13,20 @@ export const metadata: Metadata = {
     "dentista estética Rio Preto",
     "sorriso de porcelana",
     "faceta dental preço Rio Preto",
+    "faceta de porcelana preço São José do Rio Preto",
+    "lente de contato no dente Rio Preto",
+    "transformação sorriso São José do Rio Preto",
   ],
+  alternates: { canonical: "https://www.odontoneoriopreto.com.br/lentes-de-contato-dental" },
+  openGraph: {
+    locale: "pt_BR",
+    type: "website",
+    url: "https://www.odontoneoriopreto.com.br/lentes-de-contato-dental",
+    siteName: "OdontoNeo Infinity",
+    title: "Lentes de Contato Dental em São José do Rio Preto | OdontoNeo",
+    description: "Lentes de contato dental e facetas de porcelana em São José do Rio Preto. Projeto 3D exclusivo, sem moldes de gesso. Dr. Gustavo Giolo – OdontoNeo Infinity.",
+    images: [{ url: "https://www.odontoneoriopreto.com.br/lente.jpg", width: 1200, height: 630, alt: "Lentes de Contato Dental OdontoNeo – São José do Rio Preto" }],
+  },
 };
 
 const WHATSAPP = "https://wa.me/5517996678007?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20lentes%20de%20contato%20dental.";
@@ -41,17 +54,61 @@ const FAQ = [
   },
 ];
 
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQ.map((f) => ({
+    "@type": "Question",
+    "name": f.pergunta,
+    "acceptedAnswer": { "@type": "Answer", "text": f.resposta },
+  })),
+};
+
+const schemaMedicalProcedure = {
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Lentes de Contato Dental",
+  "description": "Facetas ultrafinas de porcelana aplicadas com planejamento digital 3D em São José do Rio Preto. Sem moldes de gesso, resultado em 2 a 3 sessões.",
+  "procedureType": "CosmeticProcedure",
+  "howPerformed": "Escaneamento intraoral 3D, projeto digital do sorriso e cimentação de facetas ultrafinas",
+  "preparation": "Visualização do projeto 3D do sorriso antes do início do procedimento",
+  "performer": {
+    "@type": "Physician",
+    "name": "Dr. Gustavo Giolo",
+    "identifier": "CRO-SP 140.793"
+  },
+  "location": {
+    "@type": "Dentist",
+    "name": "OdontoNeo Infinity",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Ondina, 259",
+      "addressLocality": "São José do Rio Preto",
+      "addressRegion": "SP",
+      "postalCode": "15015-205",
+      "addressCountry": "BR"
+    }
+  }
+};
+
 export default function LentesContatoDentalPage() {
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMedicalProcedure) }} />
 
       {/* ── Hero ── */}
       <section className="relative flex items-end overflow-hidden" style={{ minHeight: "clamp(420px, 65vh, 680px)" }}>
+        <style dangerouslySetInnerHTML={{ __html: `
+          .lentes-hero-img { object-position: center 70%; }
+          @media (min-width: 768px) { .lentes-hero-img { object-position: center 55%; } }
+        ` }} />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/lente.jpg"
           alt="Lentes de Contato Dental OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%" }}
+          className="lentes-hero-img"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.97) 0%, rgba(5,10,22,0.55) 50%, rgba(5,10,22,0.1) 100%)" }} />
 
@@ -166,14 +223,8 @@ export default function LentesContatoDentalPage() {
               Por que escolher a OdontoNeo para sua{" "}
               <em className="not-italic" style={{ color: "#D4A11E" }}>Estética Dental?</em>
             </h2>
-            <p className="mb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Existem muitas clínicas de odontologia, mas poucas entregam a{" "}
-              <strong className="text-white">odontologia de luxo</strong>. Sob a maestria do{" "}
-              <strong className="text-white">Dr. Gustavo Giolo</strong>, seu projeto é tratado com exclusividade.
-            </p>
             <p className="mb-8 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Em poucas sessões, sem dor e em um ambiente de extremo conforto, você sai com um{" "}
-              <strong className="text-white">sorriso de capa de revista</strong>.
+              O nosso planeamento é feito em 3D. O paciente vê como o seu sorriso vai ficar antes mesmo de iniciarmos o procedimento. Tudo isto numa clínica premium, tecnológica e preparada para o receber com total exclusividade, sem a ansiedade dos antigos moldes de gesso.
             </p>
             {/* Diferencial */}
             <div className="grid grid-cols-2 gap-3">
@@ -252,7 +303,7 @@ export default function LentesContatoDentalPage() {
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
-            Falar com Nosso Especialista Agora
+            Clique no botão abaixo e fale comigo
           </a>
         </div>
       </section>

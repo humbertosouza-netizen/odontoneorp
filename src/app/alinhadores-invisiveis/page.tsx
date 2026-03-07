@@ -12,7 +12,20 @@ export const metadata: Metadata = {
     "dentista especialista em ortodontia Rio Preto",
     "aparelho ortodôntico invisível Rio Preto",
     "ortodontia sem braquetes Rio Preto",
+    "alinhador invisível preço Rio Preto",
+    "correção de dentes sem aparelho fixo Rio Preto",
+    "ortodontia digital São José do Rio Preto",
   ],
+  alternates: { canonical: "https://www.odontoneoriopreto.com.br/alinhadores-invisiveis" },
+  openGraph: {
+    locale: "pt_BR",
+    type: "website",
+    url: "https://www.odontoneoriopreto.com.br/alinhadores-invisiveis",
+    siteName: "OdontoNeo Infinity",
+    title: "Alinhador Transparente em São José do Rio Preto | OdontoNeo",
+    description: "Alinhadores transparentes e aparelho invisível em São José do Rio Preto. Planejamento digital 3D, ortodontia sem braquetes. Dr. Gustavo Giolo – OdontoNeo Infinity.",
+    images: [{ url: "https://www.odontoneoriopreto.com.br/tratamentos-2.jpeg", width: 1200, height: 630, alt: "Alinhadores Transparentes OdontoNeo – São José do Rio Preto" }],
+  },
 };
 
 const WHATSAPP = "https://wa.me/5517996678007?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20alinhadores%20transparentes.";
@@ -40,9 +53,48 @@ const FAQ = [
   },
 ];
 
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQ.map((f) => ({
+    "@type": "Question",
+    "name": f.pergunta,
+    "acceptedAnswer": { "@type": "Answer", "text": f.resposta },
+  })),
+};
+
+const schemaMedicalProcedure = {
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Alinhadores Transparentes",
+  "description": "Ortodontia com alinhadores invisíveis em São José do Rio Preto. Planejamento digital 3D com movimentação prevista antes de iniciar o tratamento.",
+  "procedureType": "CosmeticProcedure",
+  "howPerformed": "Escaneamento intraoral e planejamento digital com alinhadores transparentes personalizados",
+  "preparation": "Avaliação digital 3D para previsão completa do resultado",
+  "performer": {
+    "@type": "Physician",
+    "name": "Dr. Gustavo Giolo",
+    "identifier": "CRO-SP 140.793"
+  },
+  "location": {
+    "@type": "Dentist",
+    "name": "OdontoNeo Infinity",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Ondina, 259",
+      "addressLocality": "São José do Rio Preto",
+      "addressRegion": "SP",
+      "postalCode": "15015-205",
+      "addressCountry": "BR"
+    }
+  }
+};
+
 export default function AlinhadoresInvisiveis() {
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMedicalProcedure) }} />
 
       {/* ── Hero ── */}
       <section className="relative flex items-end overflow-hidden" style={{ minHeight: "clamp(420px, 65vh, 680px)" }}>

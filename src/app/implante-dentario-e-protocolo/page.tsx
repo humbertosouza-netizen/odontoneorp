@@ -4,16 +4,29 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Implantes Dentários e Prótese Protocolo em São José do Rio Preto | OdontoNeo",
   description:
-    "Prótese protocolo e implantes dentários em São José do Rio Preto. Reabilitação oral com carga imediata, sedação consciente e zero dor. Dr. Gustavo Giolo – CRO-SP 140.793.",
+    "Prótese protocolo e implantes dentários em São José do Rio Preto. Reabilitação oral com carga imediata, sedação endovenosa e zero dor. Dr. Gustavo Giolo – CRO-SP 140.793.",
   keywords: [
     "implante dentário São José do Rio Preto",
     "prótese protocolo Rio Preto",
     "implante dentário valor",
-    "reabilitação oral",
-    "carga imediata",
-    "dentista implante Rio Preto",
     "implante dentário preço",
+    "reabilitação oral São José do Rio Preto",
+    "carga imediata implante",
+    "dentista implante Rio Preto",
+    "prótese fixa São José do Rio Preto",
+    "sedação endovenosa dentista Rio Preto",
+    "implante de titânio Rio Preto",
   ],
+  alternates: { canonical: "https://www.odontoneoriopreto.com.br/implante-dentario-e-protocolo" },
+  openGraph: {
+    locale: "pt_BR",
+    type: "website",
+    url: "https://www.odontoneoriopreto.com.br/implante-dentario-e-protocolo",
+    siteName: "OdontoNeo Infinity",
+    title: "Implantes Dentários e Prótese Protocolo em São José do Rio Preto | OdontoNeo",
+    description: "Prótese protocolo e implantes dentários em São José do Rio Preto. Reabilitação oral com carga imediata, sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793.",
+    images: [{ url: "https://www.odontoneoriopreto.com.br/resultados-8.jpeg", width: 1200, height: 630, alt: "Implante Dentário OdontoNeo – São José do Rio Preto" }],
+  },
 };
 
 const WHATSAPP = "https://wa.me/5517996678007?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20implante%20dent%C3%A1rio.";
@@ -41,17 +54,57 @@ const FAQ = [
   },
 ];
 
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQ.map((f) => ({
+    "@type": "Question",
+    "name": f.pergunta,
+    "acceptedAnswer": { "@type": "Answer", "text": f.resposta },
+  })),
+};
+
+const schemaMedicalProcedure = {
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Implante Dentário e Prótese Protocolo",
+  "description": "Reabilitação oral completa com implantes de titânio e prótese fixa parafusada, com carga imediata e sedação endovenosa em São José do Rio Preto.",
+  "procedureType": "SurgicalProcedure",
+  "followup": "Acompanhamento periódico com Dr. Gustavo Giolo",
+  "howPerformed": "Cirurgia guiada por planejamento digital 3D com sedação consciente",
+  "preparation": "Escaneamento intraoral e tomografia digital",
+  "performer": {
+    "@type": "Physician",
+    "name": "Dr. Gustavo Giolo",
+    "identifier": "CRO-SP 140.793"
+  },
+  "location": {
+    "@type": "Dentist",
+    "name": "OdontoNeo Infinity",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Ondina, 259",
+      "addressLocality": "São José do Rio Preto",
+      "addressRegion": "SP",
+      "postalCode": "15015-205",
+      "addressCountry": "BR"
+    }
+  }
+};
+
 export default function ImplantePage() {
   return (
     <main className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFAQ) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMedicalProcedure) }} />
 
       {/* ── Hero ── */}
       <section className="relative flex items-end overflow-hidden" style={{ minHeight: "clamp(420px, 65vh, 680px)" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/img-protocolo.jpeg"
+          src="/resultados-8.jpeg"
           alt="Prótese Protocolo OdontoNeo Infinity"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.97) 0%, rgba(5,10,22,0.6) 50%, rgba(5,10,22,0.15) 100%)" }} />
 
@@ -128,10 +181,10 @@ export default function ImplantePage() {
         </div>
       </section>
 
-      {/* ── Tecnologia / Zero Dor ── */}
+      {/* ── Quebra de objeções: medo de dentista ── */}
       <section className="overflow-hidden" style={{ background: "#0C1829" }}>
         <div className="mx-auto grid max-w-6xl gap-0 lg:grid-cols-2">
-          {/* Vídeo 0 Dor — YouTube (padrão vertical 9:16) */}
+          {/* Vídeo — YouTube (padrão vertical 9:16) */}
           <div
             className="flex items-center justify-center px-6 lg:px-10"
             style={{ background: "#050A16" }}
@@ -142,7 +195,7 @@ export default function ImplantePage() {
             >
               <iframe
                 src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
-                title="Protocolo Confort — 0 Dor"
+                title="Tenho muito medo de dentista. E agora?"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 style={{
@@ -161,38 +214,27 @@ export default function ImplantePage() {
             <div className="mb-5 flex items-center gap-3">
               <span className="block h-px w-6" style={{ background: "#D4A11E" }} />
               <span className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: "#D4A11E" }}>
-                Protocolo Confort
+                Sem dor. Sem medo.
               </span>
             </div>
             <h2
               className="font-serif mb-5 font-semibold leading-tight text-white"
               style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)", letterSpacing: "-0.015em" }}
             >
-              O Fim do Medo de Dentista:{" "}
-              <em className="not-italic" style={{ color: "#D4A11E" }}>Tecnologia High-Tech e Zero Dor</em>
+              &ldquo;Tenho muito medo de dentista. E agora?&rdquo;
             </h2>
             <p className="mb-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Se o medo da dor é o que está te paralisando, respire fundo. Nós desenvolvemos um ambiente
-              voltado para o conforto absoluto. Não usamos métodos arcaicos.
+              Nós entendemos perfeitamente. Sabemos que muitas pessoas carregam traumas ou más experiências do passado. Por isso, na OdontoNeo, criamos um ambiente seguro para si. Esqueça a tensão e o barulho que dão aflição.
             </p>
             <p className="mb-8 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Nossa clínica utiliza{" "}
-              <strong className="text-white">sedação consciente</strong> e{" "}
-              <strong className="text-white">anestesia computadorizada sem agulhas assustadoras</strong>. Você
-              vai relaxar e acordar com o sorriso que perdeu há anos.
+              Utilizamos <strong className="text-white">sedação endovenosa</strong> e <strong className="text-white">anestesia computadorizada de microprecisão</strong>. Enquanto a nossa equipa cuida de si com a tecnologia mais avançada, o paciente apenas relaxa e descansa.
             </p>
             {/* Selo */}
             <div
               className="inline-flex w-fit items-center gap-3 rounded-full px-5 py-3"
               style={{ background: "rgba(212,161,30,0.1)", border: "1px solid rgba(212,161,30,0.25)" }}
             >
-              <span className="font-serif text-2xl font-bold leading-none" style={{ color: "#D4A11E" }}>0</span>
-              <div>
-                <p className="text-sm font-bold text-white">Dor Garantido.</p>
-                <p className="text-[10px] uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  Protocolo Confort OdontoNeo
-                </p>
-              </div>
+              <span className="font-serif text-2xl font-bold leading-none" style={{ color: "#D4A11E" }}>Sem dor.</span>
             </div>
           </div>
         </div>
@@ -265,7 +307,7 @@ export default function ImplantePage() {
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
-            Agendar Avaliação Premium no WhatsApp
+            Clique no botão abaixo e fale comigo
           </a>
         </div>
       </section>

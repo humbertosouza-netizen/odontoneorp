@@ -46,24 +46,18 @@ export default function TecnologiaSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            <em className="not-italic" style={{ color: "#1F3A5F" }}>&ldquo;Tenho medo de dentista.</em>{" "}
-            <span style={{ color: "#D4A11E" }}>E agora?&rdquo;</span>
+            <em className="not-italic" style={{ color: "#1F3A5F" }}>&ldquo;Tenho muito medo de dentista. E agora?&rdquo;</em>
           </h2>
 
           {/* Texto principal */}
           <p className="mb-4 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "46ch" }}>
-            Nós entendemos. Por isso, criamos o{" "}
-            <strong style={{ color: "#1F3A5F" }}>Protocolo Confort</strong>. Esqueça as agulhas
-            assustadoras e o barulho que dá aflição. Utilizamos{" "}
-            <strong style={{ color: "#1F3A5F" }}>sedação consciente</strong> e{" "}
-            <strong style={{ color: "#1F3A5F" }}>anestesia computadorizada de microprecisão</strong>.
+            Nós entendemos perfeitamente. Sabemos que muitas pessoas carregam traumas ou más experiências do passado. Por isso, na OdontoNeo, criamos um ambiente seguro para si. Esqueça a tensão e o barulho que dão aflição.
           </p>
-          <p className="mb-10 text-base leading-relaxed" style={{ color: "#7A8694", maxWidth: "46ch" }}>
-            Você relaxa em um ambiente seguro enquanto nós cuidamos de tudo. O único
-            &ldquo;risco&rdquo; é você sair daqui querendo sorrir para todo mundo.
+          <p className="mb-10 text-base leading-relaxed" style={{ color: "#4A4A4A", maxWidth: "46ch" }}>
+            Utilizamos <strong style={{ color: "#1F3A5F" }}>sedação endovenosa</strong> e <strong style={{ color: "#1F3A5F" }}>anestesia computadorizada de microprecisão</strong>. Enquanto a nossa equipa cuida de si com a tecnologia mais avançada, o paciente apenas relaxa e descansa.
           </p>
 
-          {/* Selo 0 Dor */}
+          {/* Selo Sem dor */}
           <div
             className="mb-10 inline-flex items-center gap-3 rounded-full px-5 py-3"
             style={{ background: "rgba(31,58,95,0.08)", border: "1px solid rgba(31,58,95,0.15)" }}
@@ -72,12 +66,8 @@ export default function TecnologiaSection() {
               className="font-serif text-2xl font-bold leading-none"
               style={{ color: "#D4A11E" }}
             >
-              0
+              Sem dor.
             </span>
-            <div>
-              <p className="text-sm font-bold" style={{ color: "#1F3A5F" }}>Dor Garantido.</p>
-              <p className="text-[10px] uppercase tracking-widest" style={{ color: "#7A8694" }}>Protocolo Confort OdontoNeo</p>
-            </div>
           </div>
 
           {/* Lista de diferenciais */}
@@ -130,7 +120,7 @@ export default function TecnologiaSection() {
           >
             <iframe
               src="https://www.youtube.com/embed/FEj7iHAKMvU?rel=0"
-              title="Tenho medo de dentista. E agora? — Protocolo Confort"
+              title="Tenho muito medo de dentista. E agora?"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               style={{
@@ -143,19 +133,16 @@ export default function TecnologiaSection() {
               }}
             />
 
-            {/* Badge flutuante — "0 Dor" */}
+            {/* Badge flutuante — Sem dor */}
             <div
               className="absolute bottom-5 left-5 flex flex-col items-start rounded-xl bg-white px-5 py-4"
               style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.14)", zIndex: 2 }}
             >
               <span
-                className="font-serif text-3xl font-semibold leading-none"
+                className="font-serif text-2xl font-semibold leading-none"
                 style={{ color: "#1F3A5F" }}
               >
-                0 dor
-              </span>
-              <span className="mt-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: "#D4A11E" }}>
-                garantido
+                Sem dor.
               </span>
             </div>
           </div>

@@ -5,14 +5,20 @@ export default function BannerSection() {
       className="relative w-full overflow-hidden"
       style={{ minHeight: "100vh" }}
     >
-      {/* Imagem de fundo — objectPosition diferente mobile/desktop */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/imagem-banner-principal.png"
-        alt="OdontoNeo Infinity — São José do Rio Preto"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "55% center" }}
-      />
+      {/* Vídeo de fundo YouTube — autoplay, mudo, sem cliques */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .banner-video-wrap { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+        .banner-video-wrap iframe { position: absolute; top: 50%; left: 50%; width: max(100vw, 56.25vh); height: max(177.78vw, 100vh); transform: translate(-50%, -50%); pointer-events: none; }
+      ` }} />
+      <div className="banner-video-wrap" aria-hidden>
+        <iframe
+          src="https://www.youtube.com/embed/2Ny4ZRMSPnY?autoplay=1&mute=1&loop=1&playlist=2Ny4ZRMSPnY&controls=0&showinfo=0&rel=0"
+          title="Vídeo de fundo OdontoNeo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ border: 0, display: "block" }}
+        />
+      </div>
 
       {/* Overlay azul escuro mais intenso para leitura */}
       <div

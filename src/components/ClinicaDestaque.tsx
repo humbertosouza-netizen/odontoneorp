@@ -87,22 +87,18 @@ export default function ClinicaDestaque() {
               letterSpacing: "-0.01em",
             }}
           >
-            O Fim do Consultório Odontológico Tradicional.{" "}
+            O Fim do Consultório Tradicional.{" "}
             <em className="not-italic" style={{ color: "#D4A11E" }}>
-              Bem-vindo ao Padrão Infinity.
+              Bem-vindo a um atendimento verdadeiramente personalizado.
             </em>
           </h2>
 
           {/* Texto descritivo */}
           <p
             className="mb-10 text-base leading-relaxed"
-            style={{ color: "#4A4A4A", maxWidth: "46ch" }}
+            style={{ color: "#4A4A4A", maxWidth: "52ch" }}
           >
-            Se você buscou por um <strong style={{ color: "#1F3A5F" }}>&ldquo;dentista próximo a mim&rdquo;</strong> que
-            ofereça uma experiência de verdadeiro luxo, acabou de encontrar. A OdontoNeo
-            Infinity foi projetada para redefinir o seu conceito de ir ao dentista.
-            Ambientes climatizados, salas privativas e um atendimento focado exclusivamente
-            em você, do início ao fim da sua jornada.
+            A OdontoNeo Infinity foi desenhada para redefinir o seu conceito de ir ao dentista. Esqueça os atendimentos frios e apressados. Somos uma clínica premium focada em oferecer uma odontologia altamente tecnológica, mas com um coração profundamente humanizado. Em ambientes climatizados e salas privativas, o nosso foco exclusivo é entregar o melhor resultado para o seu sorriso, respeitando a sua história e garantindo o seu conforto do primeiro ao último minuto.
           </p>
 
           {/* CTA outline — igual ao Vitta */}

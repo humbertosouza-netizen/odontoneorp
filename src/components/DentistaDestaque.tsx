@@ -3,7 +3,7 @@ import { DENTISTA, CRO } from "@/lib/constants";
 
 const PROFISSIONAIS = [
   {
-    foto: "/foto-dr-gustavo.jpeg",
+    foto: "/foto-dr-gustavo-2.jpeg",
     nome: "Dr. Gustavo Giolo",
     especialidade: "Implantodontista · Reabilitação Oral",
     cro: CRO,
@@ -78,50 +78,39 @@ export default function DentistaDestaque() {
           </Link>
         </div>
 
-        {/* ── Direita: foto do Dr. Gustavo ── */}
-        <div className="relative">
+        {/* ── Direita: card Netflix — foto Dr. Gustavo ── */}
+        <div className="flex justify-center lg:justify-end">
           <div
-            className="group relative overflow-hidden rounded-xl"
-            style={{
-              height: "clamp(360px, 52vw, 520px)",
-              border: "2px solid #D4A11E",
-              boxShadow: "0 12px 48px rgba(0,0,0,0.18)",
-            }}
+            className="group relative w-full max-w-sm overflow-hidden rounded-2xl"
+            style={{ aspectRatio: "3/4", boxShadow: "0 8px 48px rgba(0,0,0,0.28)", border: "1px solid rgba(212,161,30,0.2)" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={PROFISSIONAIS[0].foto}
               alt={PROFISSIONAIS[0].nome}
-              className="group-hover:scale-105 transition-transform duration-700"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: PROFISSIONAIS[0].position,
-              }}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{ objectPosition: "center 20%" }}
             />
 
-            {/* Overlay degradê no fundo */}
+            {/* Gradiente base */}
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(5,10,22,0.95) 0%, rgba(5,10,22,0.25) 50%, transparent 100%)" }} />
+
+            {/* Badge CRO — topo direito */}
             <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(to top, rgba(5,10,22,0.85) 0%, rgba(5,10,22,0.1) 55%, transparent 100%)",
-              }}
-            />
+              className="absolute right-4 top-4 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-[0.18em]"
+              style={{ background: "rgba(212,161,30,0.15)", border: "1px solid rgba(212,161,30,0.5)", color: "#D4A11E", backdropFilter: "blur(8px)" }}
+            >
+              {PROFISSIONAIS[0].cro}
+            </div>
 
-            {/* Nome + especialidade + CRO */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            {/* Nome + especialidade */}
+            <div className="absolute inset-x-0 bottom-0 p-6">
+              <div className="mb-3 h-px w-8" style={{ background: "#D4A11E" }} />
               <p className="font-serif text-xl font-semibold leading-tight text-white">
                 {PROFISSIONAIS[0].nome}
               </p>
               <p className="mt-1 text-[12px] font-medium" style={{ color: "#D4A11E" }}>
                 {PROFISSIONAIS[0].especialidade}
-              </p>
-              <p className="mt-1 text-[11px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-                {PROFISSIONAIS[0].cro}
               </p>
             </div>
           </div>

@@ -31,6 +31,83 @@ export const metadata: Metadata = {
   },
 };
 
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Dentist", "LocalBusiness", "MedicalOrganization"],
+      "@id": "https://www.odontoneoriopreto.com.br/#organization",
+      "name": "OdontoNeo Infinity",
+      "url": "https://www.odontoneoriopreto.com.br",
+      "logo": "https://www.odontoneoriopreto.com.br/logo-odontoneo.png",
+      "image": "https://www.odontoneoriopreto.com.br/foto-principal.jpg",
+      "description": "Clínica odontológica premium em São José do Rio Preto – SP. Implantes, prótese protocolo, lentes de contato dental, alinhadores e sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793.",
+      "telephone": "+55-17-99667-8007",
+      "email": "contato@odontoneo.com",
+      "priceRange": "$$$$",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Ondina, 259",
+        "addressLocality": "São José do Rio Preto",
+        "addressRegion": "SP",
+        "postalCode": "15015-205",
+        "addressCountry": "BR",
+        "addressNeighborhood": "Vila Redentora"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-20.8197",
+        "longitude": "-49.3794"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/odontoneosjriopreto",
+        "https://share.google/GVcRtHTS1HqbMcAet"
+      ],
+      "hasMap": "https://share.google/GVcRtHTS1HqbMcAet",
+      "medicalSpecialty": [
+        "Implantodontia",
+        "Reabilitação Oral",
+        "Estética Dental",
+        "Ortodontia",
+        "Sedação Endovenosa"
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "São José do Rio Preto",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "150"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.odontoneoriopreto.com.br/#dentist",
+      "name": "Dr. Gustavo Giolo",
+      "jobTitle": "Implantodontista e Especialista em Reabilitação Oral",
+      "identifier": "CRO-SP 140.793",
+      "worksFor": { "@id": "https://www.odontoneoriopreto.com.br/#organization" },
+      "medicalSpecialty": ["Implantodontia", "Reabilitação Oral", "Estética Dental"],
+      "image": "https://www.odontoneoriopreto.com.br/foto-dr-gustavo-2.jpeg"
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,6 +115,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness) }}
+        />
+      </head>
       <body className="min-h-screen bg-white">{children}</body>
     </html>
   );

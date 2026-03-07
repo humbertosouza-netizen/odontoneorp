@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear rotas internas e auxiliares
+Disallow: /estrategia
+Disallow: /analisecampanha
+Disallow: /api/
+
+Sitemap: https://www.odontoneoriopreto.com.br/sitemap.xml

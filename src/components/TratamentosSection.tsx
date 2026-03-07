@@ -298,7 +298,7 @@ export default function TratamentosSection() {
                 rel="noopener noreferrer"
                 className="btn-wa mt-7 w-full"
               >
-                Agendar Avaliação Gratuita
+                Clique no botão abaixo e fale comigo
               </a>
             </div>
 
@@ -336,7 +336,7 @@ export default function TratamentosSection() {
                   className="inline-flex items-center gap-1.5 text-xs font-bold"
                   style={{ color: "#1F3A5F" }}
                 >
-                  Agendar agora →
+                  Clique no botão abaixo e fale comigo →
                 </a>
               </div>
             </div>
