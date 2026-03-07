@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -140,6 +141,9 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17999725494');
+            gtag('config', 'AW-17999725494/eeyBCMDPsYQcELaH-IZD', {
+              'phone_conversion_number': '+${WHATSAPP_NUMBER}'
+            });
           `}
         </Script>
       </body>
