@@ -44,10 +44,48 @@ const PILARES = [
 ];
 
 const FOTOS_ESTRUTURA = [
-  { src: "/recepcao-ampla.jpg",   label: "Recepção Ampla",      objectPosition: "center center" },
-  { src: "/sala-atendimento.jpg", label: "Sala de Atendimento",  objectPosition: "center center" },
-  { src: "/recepcao.jpg",         label: "Recepção",             objectPosition: "center center" },
-  { src: "/foto-clinica-1.jpg",   label: "Área Interna",         objectPosition: "center center" },
+  "/Flow_IMG_20250430_174230_01_060.JPG",
+  "/Flow_IMG_20250430_174244_01_063.JPG",
+  "/Flow_IMG_20250430_174301_01_064.JPG",
+  "/Flow_IMG_20250430_174435_01_073.JPG",
+  "/Flow_IMG_20250430_174447_01_075.JPG",
+  "/Flow_IMG_20250430_174459_01_077.JPG",
+  "/Flow_IMG_20250430_174508_01_079.JPG",
+  "/Flow_IMG_20250430_174515_01_080.JPG",
+  "/Flow_IMG_20250430_174527_01_082.JPG",
+  "/Flow_IMG_20250430_174537_01_083.JPG",
+  "/Flow_IMG_20250430_174542_01_084.JPG",
+  "/Flow_IMG_20250430_174556_01_085.JPG",
+  "/Flow_IMG_20250430_174617_01_086.JPG",
+  "/Flow_IMG_20250430_174641_01_088.JPG",
+  "/Flow_IMG_20250430_174652_01_089.JPG",
+  "/Flow_IMG_20250430_174707_01_090.JPG",
+  "/Flow_IMG_20250430_174727_01_092.JPG",
+  "/Flow_IMG_20250430_174730_01_093.JPG",
+  "/Flow_IMG_20250430_174745_01_094.JPG",
+  "/Flow_IMG_20250430_175235_01_132.JPG",
+  "/Flow_IMG_20250430_175241_01_133.JPG",
+  "/Flow_IMG_20250430_175253_01_134.JPG",
+  "/Flow_IMG_20250430_175302_01_136.JPG",
+  "/Flow_IMG_20250430_175309_01_137.JPG",
+  "/Flow_IMG_20250430_175320_01_139.JPG",
+  "/Flow_IMG_20250430_175333_01_141.JPG",
+  "/Flow_IMG_20250430_175346_01_142.JPG",
+  "/Flow_IMG_20250430_175438_01_143.JPG",
+  "/Flow_IMG_20250430_175506_01_145.JPG",
+  "/Flow_IMG_20250430_175555_01_150.JPG",
+  "/Flow_IMG_20250430_175645_01_152.JPG",
+  "/Flow_IMG_20250430_175653_01_154.JPG",
+  "/Flow_IMG_20250430_175701_01_155.JPG",
+  "/Flow_IMG_20250430_175718_01_157.JPG",
+  "/Flow_IMG_20250430_175723_01_158.JPG",
+  "/Flow_IMG_20250430_175729_01_159.JPG",
+  "/Flow_IMG_20250430_175745_01_160.JPG",
+  "/Flow_IMG_20250430_175834_01_161.JPG",
+  "/Flow_IMG_20250430_175840_01_162.JPG",
+  "/Flow_IMG_20250430_175952_01_166.JPG",
+  "/Flow_IMG_20250430_180001_01_168.JPG",
+  "/Flow_IMG_20250430_180331_01_175.JPG",
 ];
 
 export default function AClinicaPage() {
@@ -203,25 +241,20 @@ export default function AClinicaPage() {
           </a>
         </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {FOTOS_ESTRUTURA.map((f) => (
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+          {FOTOS_ESTRUTURA.map((src) => (
             <div
-              key={f.src}
-              className="group relative overflow-hidden rounded-2xl"
+              key={src}
+              className="group relative overflow-hidden rounded-xl"
               style={{ aspectRatio: "3/4", boxShadow: "0 4px 24px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.06)" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={f.src}
-                alt={f.label}
+                src={src}
+                alt="OdontoNeo Infinity"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ objectPosition: f.objectPosition }}
+                style={{ objectPosition: "center center" }}
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,10,22,0.85) 0%, rgba(5,10,22,0.1) 55%, transparent 100%)" }} />
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <div className="mb-1.5 h-px w-5" style={{ background: "#D4A11E" }} />
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/80">{f.label}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -241,7 +274,7 @@ export default function AClinicaPage() {
               {ENDERECO} — {CIDADE} — {CEP}
             </p>
             <p className="mx-auto mb-10 text-xs uppercase tracking-widest" style={{ color: "rgba(212,161,30,0.6)" }}>
-              Seg – Sex · 08h às 19h
+              Seg – Sex 08h às 19h · Sáb 08h às 12h
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"

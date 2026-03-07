@@ -1,7 +1,6 @@
-import { WHATSAPP_LINK, WHATSAPP_DISPLAY } from "@/lib/constants";
+import { WHATSAPP_LINK, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/constants";
 
-const PHONE_NUMBER = "5517996678007";
-const PHONE_LINK = `tel:+${PHONE_NUMBER}`;
+const PHONE_LINK = `tel:+${WHATSAPP_NUMBER}`;
 
 export default function AgendaSection() {
   return (
@@ -112,7 +111,7 @@ export default function AgendaSection() {
 
         {/* Rodapé discreto */}
         <p className="mt-10 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-          Atendimento de segunda a sexta, das 08h às 19h
+          Atendimento Seg–Sex 08h às 19h · Sáb 08h às 12h
         </p>
       </div>
     </section>

@@ -13,7 +13,7 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 export const metadata: Metadata = {
   title: "OdontoNeo Infinity | Dentista em São José do Rio Preto – SP",
   description:
-    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, alinhadores e sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793. Agende: (17) 99667-8007.",
+    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, alinhadores e sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793. Agende: (17) 99752-3045.",
   keywords: [
     "dentista São José do Rio Preto",
     "implante dentário São José do Rio Preto",

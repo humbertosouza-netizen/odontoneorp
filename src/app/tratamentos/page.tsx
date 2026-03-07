@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Tratamentos | OdontoNeo Infinity – São José do Rio Preto",
@@ -212,7 +213,7 @@ export default function TratamentosPage() {
             o melhor caminho para o seu sorriso.
           </p>
           <a
-            href="https://wa.me/5517996678007"
+            href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"

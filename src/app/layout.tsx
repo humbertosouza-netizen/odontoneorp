@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "OdontoNeo Infinity | Dentista em São José do Rio Preto – SP",
   description:
-    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, clareamento e harmonização orofacial. Dr. Gustavo Giolo – CRO-SP 140.793. Agende pelo WhatsApp (17) 99667-8007.",
+    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, clareamento e harmonização orofacial. Dr. Gustavo Giolo – CRO-SP 140.793. Agende pelo WhatsApp (17) 99752-3045.",
   keywords:
     "dentista São José do Rio Preto, implante dentário Rio Preto, prótese dentária, clareamento dental, harmonização orofacial, lentes de contato dental, OdontoNeo Infinity, Dr Gustavo Giolo",
   openGraph: {
@@ -42,8 +42,8 @@ const schemaLocalBusiness = {
       "logo": "https://www.odontoneoriopreto.com.br/logo-odontoneo.png",
       "image": "https://www.odontoneoriopreto.com.br/foto-principal.jpg",
       "description": "Clínica odontológica premium em São José do Rio Preto – SP. Implantes, prótese protocolo, lentes de contato dental, alinhadores e sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793.",
-      "telephone": "+55-17-99667-8007",
-      "email": "contato@odontoneo.com",
+      "telephone": "+55-17-99752-3045",
+      "email": "odontoneoriopreto@gmail.com",
       "priceRange": "$$$$",
       "currenciesAccepted": "BRL",
       "paymentAccepted": "Cash, Credit Card, Debit Card",
@@ -67,6 +67,12 @@ const schemaLocalBusiness = {
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
           "opens": "08:00",
           "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "12:00"
         }
       ],
       "sameAs": [

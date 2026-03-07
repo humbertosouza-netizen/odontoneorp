@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
        - Enviar para um webhook (Slack, Zapier, etc.)
        Use a variável de ambiente EMAIL_GESTOR ou CONTATO_CAMPANHA para o destinatário.
     */
-    const emailGestor = process.env.EMAIL_GESTOR || process.env.EMAIL || "contato@odontoneo.com";
+    const emailGestor = process.env.EMAIL_GESTOR || process.env.EMAIL || "odontoneoriopreto@gmail.com";
 
     // Exemplo de payload para envio por e-mail (implemente com seu provedor):
     const payload = {

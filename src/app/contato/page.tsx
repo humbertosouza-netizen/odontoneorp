@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  WHATSAPP_LINK, WHATSAPP_DISPLAY, EMAIL,
+  WHATSAPP_LINK, WHATSAPP_DISPLAY, WHATSAPP_NUMBER, EMAIL,
   ENDERECO, CIDADE, CEP,
   INSTAGRAM_LINK, INSTAGRAM_HANDLE, GOOGLE_MAPS_LINK,
 } from "@/lib/constants";
@@ -23,7 +23,7 @@ const CANAIS = [
     tag: "Mais rápido",
     label: "WhatsApp",
     valor: WHATSAPP_DISPLAY,
-    sub: "Seg – Sex · 08h às 19h",
+    sub: "Seg – Sex 08h às 19h · Sáb 08h às 12h",
     href: WHATSAPP_LINK,
     externo: true,
     accentColor: "#25D366",
@@ -40,7 +40,7 @@ const CANAIS = [
     label: "Ligue agora",
     valor: WHATSAPP_DISPLAY,
     sub: "Atendimento humano direto",
-    href: `tel:+5517996678007`,
+    href: `tel:+55${WHATSAPP_NUMBER}`,
     externo: false,
     accentColor: "#D4A11E",
     foto: "/recepcao-ampla.jpg",
@@ -86,7 +86,7 @@ const HORARIOS = [
   { dia: "Quarta",    horario: "08:00 – 19:00", aberto: true  },
   { dia: "Quinta",    horario: "08:00 – 19:00", aberto: true  },
   { dia: "Sexta",     horario: "08:00 – 19:00", aberto: true  },
-  { dia: "Sábado",    horario: "Consultar",      aberto: false },
+  { dia: "Sábado",    horario: "08:00 – 12:00", aberto: true  },
   { dia: "Domingo",   horario: "Fechado",        aberto: false },
 ];
 

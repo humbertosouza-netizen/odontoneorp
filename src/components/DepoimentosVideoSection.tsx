@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 const DEPOIMENTOS = [
@@ -171,6 +172,20 @@ export default function DepoimentosVideoSection() {
               }}
             />
           ))}
+        </div>
+
+        {/* Ver mais resultados reais */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/resultados-reais"
+            className="inline-flex items-center gap-2 rounded-xl border-2 px-6 py-3.5 text-sm font-bold uppercase tracking-widest transition-all hover:opacity-90"
+            style={{ borderColor: "#D4A11E", color: "#D4A11E" }}
+          >
+            Ver mais resultados reais
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
         </div>
 
       </div>

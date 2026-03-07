@@ -5,9 +5,11 @@ import { WHATSAPP_LINK } from "@/lib/constants";
 
 function isOpenNow(): boolean {
   const now = new Date();
-  const day = now.getDay(); // 1=seg, 5=sex
+  const day = now.getDay(); // 0=dom, 6=sáb
   const hour = now.getHours();
-  return day >= 1 && day <= 5 && hour >= 8 && hour < 19;
+  if (day >= 1 && day <= 5) return hour >= 8 && hour < 19;
+  if (day === 6) return hour >= 8 && hour < 12; // sábado 08h–12h
+  return false;
 }
 
 const SCHEDULE = [
@@ -16,7 +18,7 @@ const SCHEDULE = [
   { day: "Quarta-feira",  time: "08:00 – 19:00", open: true },
   { day: "Quinta-feira",  time: "08:00 – 19:00", open: true },
   { day: "Sexta-feira",   time: "08:00 – 19:00", open: true },
-  { day: "Sábado",        time: "Fechado",        open: false },
+  { day: "Sábado",        time: "08:00 – 12:00", open: true },
   { day: "Domingo",       time: "Fechado",        open: false },
 ];
 
@@ -58,7 +60,7 @@ export default function HorarioSection() {
                 style={{ background: "rgba(255,100,100,0.12)", border: "1px solid rgba(255,100,100,0.25)" }}
               >
                 <span className="h-3 w-3 rounded-full bg-red-400" />
-                <span className="text-red-300">Fechado agora · Aberto Seg–Sex 08h–19h</span>
+                <span className="text-red-300">Fechado agora · Aberto Seg–Sex 08h–19h · Sáb 08h–12h</span>
               </div>
             )}
 

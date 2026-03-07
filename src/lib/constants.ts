@@ -1,7 +1,7 @@
-export const WHATSAPP_NUMBER = "5517996678007";
-export const WHATSAPP_DISPLAY = "(17) 99667-8007";
+export const WHATSAPP_NUMBER = "5517997523045";
+export const WHATSAPP_DISPLAY = "(17) 99752-3045";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const EMAIL = "contato@odontoneo.com";
+export const EMAIL = "odontoneoriopreto@gmail.com";
 export const ENDERECO = "Rua Ondina, 259 – Vila Redentora";
 export const CIDADE = "São José do Rio Preto – SP";
 export const CEP = "CEP 15015-205";

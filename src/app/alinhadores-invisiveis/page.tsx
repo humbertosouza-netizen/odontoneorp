@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP = "https://wa.me/5517996678007?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20alinhadores%20transparentes.";
+const WHATSAPP = "https://wa.me/5517997523045?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20alinhadores%20transparentes.";
 
 const FAQ = [
   {

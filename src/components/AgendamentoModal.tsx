@@ -335,7 +335,7 @@ export default function AgendamentoModal({ open, onClose }: Props) {
             </div>
 
             <p className="mt-3 text-[11px] text-[#7A8694]">
-              * Atendimento Seg – Sex. Domingos não disponíveis.
+              * Atendimento Seg – Sex 08h–19h · Sáb 08h–12h. Domingos não disponíveis.
             </p>
 
             <div className="mt-4 flex gap-3">

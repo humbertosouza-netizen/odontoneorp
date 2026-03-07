@@ -259,7 +259,7 @@ export default function Header() {
                 {ENDERECO}<br />{CIDADE}
               </p>
               <p className="mt-2 text-[10px] uppercase tracking-widest" style={{ color: "rgba(212,161,30,0.5)" }}>
-                Seg – Sex · 08h às 19h
+                Seg – Sex 08h às 19h · Sáb 08h às 12h
               </p>
             </div>
           </div>
