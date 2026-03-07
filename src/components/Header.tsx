@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { NAV_LINKS, WHATSAPP_LINK, WHATSAPP_DISPLAY, ENDERECO, CIDADE } from "@/lib/constants";
 import AgendamentoModal from "@/components/AgendamentoModal";
+import { trackConversion } from "@/lib/gtag";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -73,6 +74,7 @@ export default function Header() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackConversion}
               className="hidden items-center gap-2 text-sm font-medium text-white/80 transition-opacity hover:opacity-70 sm:flex"
             >
               Contato
@@ -236,7 +238,7 @@ export default function Header() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); trackConversion(); }}
               className="group mb-10 flex items-center gap-4 transition-opacity hover:opacity-70"
             >
               <div
@@ -293,7 +295,7 @@ export default function Header() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); trackConversion(); }}
               className="flex items-center gap-2 rounded-xl border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all hover:bg-white/10"
               style={{ borderColor: "rgba(37,211,102,0.4)", color: "#25D366" }}
             >

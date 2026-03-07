@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { trackConversion } from "@/lib/gtag";
 
 /* ── Configurações da clínica ────────────────────────── */
 const TRATAMENTOS = [
@@ -128,6 +129,7 @@ export default function AgendamentoModal({ open, onClose }: Props) {
       `*Horário preferido:* ${horaSel}`,
     ].filter(Boolean).join("\n");
 
+    trackConversion();
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
     handleClose();
   };

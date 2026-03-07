@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { WHATSAPP_NUMBER, WHATSAPP_LINK, WHATSAPP_DISPLAY } from "@/lib/constants";
+import { trackConversion } from "@/lib/gtag";
 
 export default function FormularioSection() {
   const [nome, setNome] = useState("");
@@ -13,6 +14,7 @@ export default function FormularioSection() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const msg = `Olá, meu nome é ${nome}${idade ? `, tenho ${idade} anos` : ""} e gostaria de uma avaliação odontológica na OdontoNeo São José do Rio Preto. Meu principal incômodo é ${problema || "avaliação geral"}.`;
+    trackConversion();
     setEnviado(true);
     setTimeout(() => {
       window.open(
