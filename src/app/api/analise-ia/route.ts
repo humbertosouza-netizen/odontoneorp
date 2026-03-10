@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase-client";
 
 export const dynamic = "force-dynamic";
 
@@ -36,16 +37,28 @@ export async function POST(request: NextRequest) {
     const body = (await request.json()) as Body;
     const { leadsHoje = 0, faturamentoHoje = 0, periodo = "30 dias", observacoes } = body;
 
-    // Opcional: chamar OpenAI para análise em linguagem natural
-    // const apiKey = process.env.OPENAI_API_KEY;
-    // if (apiKey) { ... }
-
-    const resumo = gerarResumoMock({
+    const parsed: Body = {
       leadsHoje: Number(leadsHoje) || 0,
       faturamentoHoje: Number(faturamentoHoje) || 0,
       periodo: String(periodo).slice(0, 50),
       observacoes,
-    });
+    };
+
+    const resumo = gerarResumoMock(parsed);
+
+    // Salvar no Supabase para aparecer no painel /gestor
+    if (supabase) {
+      const { error } = await supabase.from("ia_analises_diarias").insert({
+        leads_hoje: parsed.leadsHoje,
+        faturamento_hoje: parsed.faturamentoHoje,
+        periodo: parsed.periodo,
+        observacoes: parsed.observacoes || null,
+        resumo_ia: resumo,
+      });
+      if (error) {
+        console.error("Erro ao salvar ia_analises_diarias no Supabase:", error);
+      }
+    }
 
     return NextResponse.json({ resumo });
   } catch (e) {

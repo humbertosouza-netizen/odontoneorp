@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { WHATSAPP_LINK, getWhatsAppHref } from "@/lib/constants";
 import { trackConversion } from "@/lib/gtag";
+import { logAnalyticsEvent } from "@/lib/analytics";
 
 interface WhatsAppLinkProps {
   /** URL completa (sobrescreve message/addPathname se informado) */
@@ -34,11 +35,13 @@ export default function WhatsAppLink({
   onClick,
   children,
 }: WhatsAppLinkProps) {
+  const pathname = usePathname();
+
   const handleClick = () => {
     trackConversion();
+    logAnalyticsEvent("lead_click", pathname || "/");
     onClick?.();
   };
-  const pathname = usePathname();
 
   const href =
     hrefProp ??

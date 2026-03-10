@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 import "./globals.css";
 
 const inter = Inter({
@@ -130,6 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white">
+        <AnalyticsPageView />
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17999725494"

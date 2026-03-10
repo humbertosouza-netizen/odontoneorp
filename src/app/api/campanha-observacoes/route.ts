@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase-client";
 
 export const dynamic = "force-dynamic";
 
@@ -27,33 +28,28 @@ export async function POST(request: NextRequest) {
           ? "Promoção"
           : "Data sazonal";
 
-    /* Aqui você pode:
-       - Enviar e-mail (Resend, Nodemailer, etc.) para você/gestor
-       - Salvar em banco de dados
-       - Enviar para um webhook (Slack, Zapier, etc.)
-       Use a variável de ambiente EMAIL_GESTOR ou CONTATO_CAMPANHA para o destinatário.
+    // Salvar no Supabase para aparecer no painel /gestor
+    if (supabase) {
+      const { error } = await supabase.from("campanha_observacoes").insert({
+        tipo,
+        mensagem: mensagem.trim(),
+        data_sazonal: data || null,
+      });
+      if (error) {
+        console.error("Erro ao salvar campanha_observacoes no Supabase:", error);
+      }
+    }
+
+    /* Opcional: além de salvar no Supabase, você pode enviar e-mail
+       para o gestor usando EMAIL_GESTOR / EMAIL. Mantido como comentário.
     */
-    const emailGestor = process.env.EMAIL_GESTOR || process.env.EMAIL || "odontoneoriopreto@gmail.com";
-
-    // Exemplo de payload para envio por e-mail (implemente com seu provedor):
-    const payload = {
-      to: emailGestor,
-      subject: `[OdontoNeo Campanha] ${tipoLabel} – ${new Date().toLocaleDateString("pt-BR")}`,
-      text: [
-        `Tipo: ${tipoLabel}`,
-        data ? `Data: ${data}` : "",
-        `Mensagem:\n${mensagem.trim()}`,
-      ]
-        .filter(Boolean)
-        .join("\n"),
-    };
-
-    // TODO: descomente e configure quando tiver serviço de e-mail
+    // const emailGestor = process.env.EMAIL_GESTOR || process.env.EMAIL || "odontoneoriopreto@gmail.com";
+    // const payload = { ... };
     // await sendEmail(payload);
 
     return NextResponse.json({
       ok: true,
-      message: "Observação enviada. Você receberá no e-mail configurado.",
+      message: "Observação registrada com sucesso.",
     });
   } catch (e) {
     console.error("campanha-observacoes:", e);
