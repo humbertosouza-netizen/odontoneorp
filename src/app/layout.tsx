@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import "./globals.css";
@@ -131,7 +132,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white">
-        <AnalyticsPageView />
+        <Suspense fallback={null}>
+          <AnalyticsPageView />
+        </Suspense>
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17999725494"

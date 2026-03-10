@@ -69,16 +69,18 @@ export default function AnaliseCampanhaPage() {
      - created_at: timestamp
   */
   useEffect(() => {
-    if (!supabase) return;
-
     const load = async () => {
+      if (!supabase) {
+        return;
+      }
+      const client = supabase;
       setLoadingSupabase(true);
       try {
         const since = new Date();
         since.setDate(since.getDate() - periodDays);
 
         // Page views e leads por página
-        const { data: events, error } = await supabase
+        const { data: events, error } = await client
           .from("analytics_events")
           .select("event_type,page_path,source,created_at")
           .gte("created_at", since.toISOString());
