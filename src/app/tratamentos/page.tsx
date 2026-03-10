@@ -213,6 +213,9 @@ export default function TratamentosPage() {
             o melhor caminho para o seu sorriso.
           </p>
           <WhatsAppLink
+            message="Olá! Gostaria de mais informações sobre os tratamentos."
+            page="Tratamentos"
+            section="CTA final"
             className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"
             style={{ background: "#25D366", boxShadow: "0 6px 24px rgba(37,211,102,0.35)" }}
           >

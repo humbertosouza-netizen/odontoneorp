@@ -1,4 +1,4 @@
-import { WHATSAPP_LINK } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const DEPOIMENTOS = [
   {
@@ -88,9 +88,9 @@ export default function DepoimentosSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">
+          <WhatsAppLink message="Olá! Gostaria de agendar uma consulta gratuita." section="Depoimentos" addPathname className="btn-wa">
             Agende sua consulta gratuita
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
     </section>

@@ -268,6 +268,9 @@ export default function TecnologiasPage() {
             completamente à vontade.
           </p>
           <WhatsAppLink
+            message="Olá! Gostaria de agendar uma visita ou avaliação."
+            page="Tecnologias"
+            section="CTA"
             className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"
             style={{ background: "#25D366", boxShadow: "0 6px 24px rgba(37,211,102,0.4)" }}
           >

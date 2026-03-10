@@ -1,4 +1,5 @@
-import { WHATSAPP_LINK, ENDERECO, CIDADE, CEP } from "@/lib/constants";
+import { ENDERECO, CIDADE, CEP } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const DIFERENCIAIS = [
   { icon: "☕", title: "Café de boas-vindas",    desc: "Você é recebido com carinho desde a entrada." },
@@ -51,9 +52,9 @@ export default function VisitaSection() {
               ))}
             </div>
 
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">
+            <WhatsAppLink message="Olá! Gostaria de agendar uma consulta gratuita." section="Visita" addPathname className="btn-wa">
               Agende sua consulta gratuita
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>

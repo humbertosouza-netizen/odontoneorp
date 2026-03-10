@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 function isOpenNow(): boolean {
   const now = new Date();
@@ -65,9 +65,9 @@ export default function HorarioSection() {
             )}
 
             <div className="mt-8">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">
+              <WhatsAppLink message="Olá! Gostaria de agendar pelo WhatsApp." section="Horário de atendimento" addPathname className="btn-wa">
                 Agendar pelo WhatsApp
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { WHATSAPP_LINK } from "@/lib/constants";
 import WhatsAppLink from "@/components/WhatsAppLink";
 import type { Metadata } from "next";
 import GaleriaResultados from "@/components/GaleriaResultados";
@@ -152,6 +151,9 @@ export default function ResultadosReaisPage() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
             <WhatsAppLink
+              message="Olá! Gostaria de agendar uma avaliação."
+              page="Resultados Reais"
+              section="CTA"
               className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"
               style={{ background: "#25D366", boxShadow: "0 6px 24px rgba(37,211,102,0.4)" }}
             >

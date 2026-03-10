@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 type Faq = { q: string; a: string };
 
@@ -292,14 +292,14 @@ export default function TratamentosSection() {
               </div>
 
               {/* CTA */}
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                message="Olá! Gostaria de saber mais sobre este tratamento."
+                section="Tratamentos - Modal"
+                addPathname
                 className="btn-wa mt-7 w-full"
               >
                 Clique no botão abaixo e fale comigo
-              </a>
+              </WhatsAppLink>
             </div>
 
             {/* Direita — FAQ */}
@@ -329,15 +329,15 @@ export default function TratamentosSection() {
                 <p className="mb-3 text-xs text-[#4A4A4A]">
                   Agende uma avaliação gratuita e descubra a solução definitiva para o seu caso.
                 </p>
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  message="Olá! Quero saber se esse tratamento é ideal para mim."
+                  section="Tratamentos - Mini CTA"
+                  addPathname
                   className="inline-flex items-center gap-1.5 text-xs font-bold"
                   style={{ color: "#1F3A5F" }}
                 >
                   Clique no botão abaixo e fale comigo →
-                </a>
+                </WhatsAppLink>
               </div>
             </div>
           </div>
@@ -345,9 +345,9 @@ export default function TratamentosSection() {
 
         {/* CTA final */}
         <div className="mt-12 text-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">
+          <WhatsAppLink message="Olá! Gostaria de agendar uma consulta gratuita." section="Tratamentos - CTA final" addPathname className="btn-wa">
             Agende sua consulta gratuita
-          </a>
+          </WhatsAppLink>
         </div>
       </div>
     </section>

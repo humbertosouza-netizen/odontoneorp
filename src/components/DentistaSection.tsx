@@ -1,4 +1,5 @@
-import { DENTISTA, CRO, WHATSAPP_LINK } from "@/lib/constants";
+import { DENTISTA, CRO } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const BULLETS = [
   { icon: "🎓", text: "Especialista em Implantodontia e Reabilitação Oral" },
@@ -93,9 +94,9 @@ export default function DentistaSection() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-wa">
+              <WhatsAppLink message="Olá! Gostaria de agendar uma consulta gratuita." section="Dentista" addPathname className="btn-wa">
                 Agende sua consulta gratuita
-              </a>
+              </WhatsAppLink>
               <a href="#agendamento" className="btn-outline">
                 Saiba mais
               </a>

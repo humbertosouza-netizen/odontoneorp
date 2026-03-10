@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { WHATSAPP_NUMBER, WHATSAPP_ORIGEM_SITE } from "@/lib/constants";
 import { trackConversion } from "@/lib/gtag";
 
 /* ── Configurações da clínica ────────────────────────── */
@@ -127,6 +127,8 @@ export default function AgendamentoModal({ open, onClose }: Props) {
       problema ? `*Descrição:* ${problema}` : "",
       `*Data preferida:* ${dataFmt}`,
       `*Horário preferido:* ${horaSel}`,
+      "",
+      `(${WHATSAPP_ORIGEM_SITE} - Seção: Modal Agendamento)`,
     ].filter(Boolean).join("\n");
 
     trackConversion();

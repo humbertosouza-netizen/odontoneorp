@@ -1,9 +1,11 @@
 import Link from "next/link";
 import {
-  WHATSAPP_LINK, WHATSAPP_DISPLAY, WHATSAPP_NUMBER, EMAIL,
+  WHATSAPP_DISPLAY, WHATSAPP_NUMBER, EMAIL,
   ENDERECO, CIDADE, CEP,
   INSTAGRAM_LINK, INSTAGRAM_HANDLE, GOOGLE_MAPS_LINK,
+  getWhatsAppHref,
 } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,7 +26,7 @@ const CANAIS = [
     label: "WhatsApp",
     valor: WHATSAPP_DISPLAY,
     sub: "Seg – Sex 08h às 19h · Sáb 08h às 12h",
-    href: WHATSAPP_LINK,
+    href: getWhatsAppHref({ mensagem: "Olá! Gostaria de mais informações.", pagina: "Contato", secao: "Card WhatsApp" }),
     externo: true,
     accentColor: "#25D366",
     foto: "/foto-principal.jpg",
@@ -129,15 +131,11 @@ export default function ContatoPage() {
         </div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-          {CANAIS.map((c) => (
-            <a
-              key={c.numero}
-              href={c.href}
-              target={c.externo ? "_blank" : undefined}
-              rel={c.externo ? "noopener noreferrer" : undefined}
-              className="group relative overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A11E]"
-              style={{ display: "block", boxShadow: "0 4px 32px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.06)" }}
-            >
+          {CANAIS.map((c) => {
+            const cardClass = "group relative overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A11E]";
+            const cardStyle = { display: "block" as const, boxShadow: "0 4px 32px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.06)" };
+            const inner = (
+            <>
               <div className="relative w-full" style={{ aspectRatio: "2/3" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -184,8 +182,25 @@ export default function ContatoPage() {
                   </div>
                 </div>
               </div>
-            </a>
-          ))}
+            </>
+            );
+            return c.numero === "01" ? (
+              <WhatsAppLink key={c.numero} href={c.href} className={cardClass} style={cardStyle}>
+                {inner}
+              </WhatsAppLink>
+            ) : (
+              <a
+                key={c.numero}
+                href={c.href}
+                target={c.externo ? "_blank" : undefined}
+                rel={c.externo ? "noopener noreferrer" : undefined}
+                className={cardClass}
+                style={cardStyle}
+              >
+                {inner}
+              </a>
+            );
+          })}
         </div>
       </section>
 

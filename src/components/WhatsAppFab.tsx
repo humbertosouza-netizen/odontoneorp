@@ -3,6 +3,8 @@ import WhatsAppLink from "@/components/WhatsAppLink";
 export default function WhatsAppFab() {
   return (
     <WhatsAppLink
+      message="Olá! Gostaria de mais informações."
+      addPathname
       aria-label="Falar pelo WhatsApp"
       className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full transition-transform hover:scale-110 sm:bottom-6 sm:right-6"
       style={{

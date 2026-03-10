@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { WHATSAPP_NUMBER, WHATSAPP_LINK, WHATSAPP_DISPLAY } from "@/lib/constants";
+import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, getWhatsAppHref, WHATSAPP_ORIGEM_SITE } from "@/lib/constants";
+import WhatsAppLink from "@/components/WhatsAppLink";
 import { trackConversion } from "@/lib/gtag";
 
 export default function FormularioSection() {
@@ -13,7 +14,7 @@ export default function FormularioSection() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const msg = `Olá, meu nome é ${nome}${idade ? `, tenho ${idade} anos` : ""} e gostaria de uma avaliação odontológica na OdontoNeo São José do Rio Preto. Meu principal incômodo é ${problema || "avaliação geral"}.`;
+    const msg = `Olá, meu nome é ${nome}${idade ? `, tenho ${idade} anos` : ""} e gostaria de uma avaliação odontológica na OdontoNeo São José do Rio Preto. Meu principal incômodo é ${problema || "avaliação geral"}. (${WHATSAPP_ORIGEM_SITE} - Página: Contato - Seção: Formulário)`;
     trackConversion();
     setEnviado(true);
     setTimeout(() => {
@@ -70,14 +71,12 @@ export default function FormularioSection() {
               </div>
               <div>
                 <p className="text-xs text-ink-muted">Prefere ligar ou mandar mensagem?</p>
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  href={getWhatsAppHref({ mensagem: "Olá! Gostaria de mais informações.", pagina: "Contato", secao: "Formulário - Link direto" })}
                   className="text-sm font-bold text-brand-blue hover:text-brand-gold"
                 >
                   {WHATSAPP_DISPLAY}
-                </a>
+                </WhatsAppLink>
               </div>
             </div>
           </div>

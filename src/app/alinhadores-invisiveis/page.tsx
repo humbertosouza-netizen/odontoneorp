@@ -29,7 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP = "https://wa.me/5517997523045?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20para%20alinhadores%20transparentes.";
 
 const FAQ = [
   {
@@ -294,7 +293,9 @@ export default function AlinhadoresInvisiveis() {
             Agende seu escaneamento 3D agora e veja o seu futuro sorriso antes de iniciar o tratamento.
           </p>
           <WhatsAppLink
-            href={WHATSAPP}
+            message="Olá! Gostaria de agendar uma avaliação para alinhadores transparentes."
+            page="Alinhadores Invisíveis"
+            section="CTA"
             className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-sm font-bold text-white transition-opacity hover:opacity-90"
             style={{ background: "#25D366", boxShadow: "0 6px 24px rgba(37,211,102,0.35)" }}
           >
