@@ -107,7 +107,7 @@ export default function Header() {
         {/* Imagem de fundo com opacidade baixa */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/equipe socios.jpg"
+          src="/foto-dr-gustavo-2.jpeg"
           alt=""
           aria-hidden
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
