@@ -198,7 +198,7 @@ export default function TratamentosPage() {
           <div className="mb-5 flex items-center justify-center gap-3">
             <span className="block h-px w-10" style={{ background: "#D4A11E" }} />
             <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "#D4A11E" }}>
-              Avaliação gratuita
+              Fale com nossa equipe
             </span>
             <span className="block h-px w-10" style={{ background: "#D4A11E" }} />
           </div>

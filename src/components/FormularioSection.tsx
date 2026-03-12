@@ -44,7 +44,6 @@ export default function FormularioSection() {
 
             {/* Benefícios */}
             {[
-              "Avaliação gratuita e sem compromisso",
               "Atendimento em até 24 horas",
               "Explicação clara sobre o tratamento",
               "Sem pressão para decisão imediata",
