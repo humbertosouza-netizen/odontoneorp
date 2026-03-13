@@ -143,7 +143,7 @@ export default function ResultadosReaisPage() {
             className="font-serif mx-auto mb-4 font-semibold text-white"
             style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", maxWidth: "18ch", lineHeight: 1.15 }}
           >
-            Agende sua avaliação gratuita
+            Agende sua consulta
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
             Descubra qual tratamento pode transformar o seu sorriso.

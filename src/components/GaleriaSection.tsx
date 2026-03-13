@@ -228,7 +228,7 @@ export default function GaleriaSection() {
               Quer um resultado assim?
             </p>
             <p className="text-xs text-[#4A4A4A]">
-              Agende uma avaliação gratuita com o Dr. Gustavo Giolo e descubra o tratamento ideal para o seu sorriso.
+              Agende uma consulta com o Dr. Gustavo Giolo e descubra o tratamento ideal para o seu sorriso.
             </p>
             <WhatsAppLink
               message="Quero um resultado assim"

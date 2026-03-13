@@ -177,7 +177,7 @@ export default function NossaEquipePage() {
           Agende com a OdontoNeo
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-sm leading-relaxed text-white/55">
-          Nossa equipe está pronta para oferecer uma avaliação gratuita e individualizada para o seu sorriso.
+          Nossa equipe está pronta para oferecer um atendimento individualizado para o seu sorriso.
         </p>
         <WhatsAppLink
           message="Olá! Gostaria de agendar uma avaliação."

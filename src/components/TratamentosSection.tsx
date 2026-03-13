@@ -327,7 +327,7 @@ export default function TratamentosSection() {
                   Quer saber se esse tratamento é ideal para você?
                 </p>
                 <p className="mb-3 text-xs text-[#4A4A4A]">
-                  Agende uma avaliação gratuita e descubra a solução definitiva para o seu caso.
+                  Agende uma consulta e descubra a solução definitiva para o seu caso.
                 </p>
                 <WhatsAppLink
                   message="Olá! Quero saber se esse tratamento é ideal para mim."
