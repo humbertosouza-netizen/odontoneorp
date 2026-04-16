@@ -42,7 +42,7 @@ const CANAIS = [
     label: "Ligue agora",
     valor: WHATSAPP_DISPLAY,
     sub: "Atendimento humano direto",
-    href: `tel:+55${WHATSAPP_NUMBER}`,
+    href: `tel:+${WHATSAPP_NUMBER}`,
     externo: false,
     accentColor: "#D4A11E",
     foto: "/recepcao-ampla.jpg",

@@ -1,5 +1,6 @@
-export const WHATSAPP_NUMBER = "5517997523045";
-export const WHATSAPP_DISPLAY = "(17) 99752-3045";
+// E.164 sem "+" (usado em wa.me e tel:+)
+export const WHATSAPP_NUMBER = "5517996707036";
+export const WHATSAPP_DISPLAY = "+55 17 99670-7036";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 /** Prefixo para metrificar contatos vindos do site / Google Ads */

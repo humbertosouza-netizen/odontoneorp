@@ -23,7 +23,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "OdontoNeo Infinity | Dentista em São José do Rio Preto – SP",
   description:
-    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, clareamento e harmonização orofacial. Dr. Gustavo Giolo – CRO-SP 140.793. Agende pelo WhatsApp (17) 99752-3045.",
+    "Clínica odontológica premium em São José do Rio Preto – SP. Implante dentário, prótese protocolo, lentes de contato dental, clareamento e harmonização orofacial. Dr. Gustavo Giolo – CRO-SP 140.793. Agende pelo WhatsApp (17) 99670-7036.",
   keywords:
     "dentista São José do Rio Preto, implante dentário Rio Preto, prótese dentária, clareamento dental, harmonização orofacial, lentes de contato dental, OdontoNeo Infinity, Dr Gustavo Giolo",
   openGraph: {
@@ -46,7 +46,7 @@ const schemaLocalBusiness = {
       "logo": "https://www.odontoneoriopreto.com.br/logo-odontoneo.png",
       "image": "https://www.odontoneoriopreto.com.br/foto-principal.jpg",
       "description": "Clínica odontológica premium em São José do Rio Preto – SP. Implantes, prótese protocolo, lentes de contato dental, alinhadores e sedação endovenosa. Dr. Gustavo Giolo – CRO-SP 140.793.",
-      "telephone": "+55-17-99752-3045",
+      "telephone": "+55-17-99670-7036",
       "email": "odontoneoriopreto@gmail.com",
       "priceRange": "$$$$",
       "currenciesAccepted": "BRL",
@@ -126,12 +126,33 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
       <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm" strategy="beforeInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TWKQVK84');
+          `}
+        </Script>
+        {/* End Google Tag Manager */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaLocalBusiness) }}
         />
       </head>
       <body className="min-h-screen bg-white">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TWKQVK84"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <Suspense fallback={null}>
           <AnalyticsPageView />
         </Suspense>
